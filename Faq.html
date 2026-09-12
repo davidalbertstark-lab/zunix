@@ -5,9 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zunix - Frequently Asked Questions</title>
     <link rel="icon" href="src/img/favicon-32x32.png">
+    <link rel="stylesheet" href="src/styles/Header.css">
     <link rel="stylesheet" href="src/styles/Faq.css">
+    <style>
+      .faq-section {
+        padding-top: 100px;
+      }
+    </style>
 </head>
 <body class="faq-body">
+
+  <header class="header">
+    <div class="logo">
+      <a href="index.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:#00b050;">
+        <img src="src/img/favicon-32x32.png" alt="Zunix Logo" /><span>Zunix</span>
+      </a>
+    </div>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+
+    <nav class="nav">
+      <ul>
+        <li><a href="Features.html">Features</a></li>
+        <li><a href="Rewards.html">Rewards</a></li>
+        <li><a href="Programs.html">Programs</a></li>
+        <li><a href="Events.html">Events</a></li>
+        <li><a href="Communities.html">Communities</a></li>
+      </ul>
+      <div class="cta-buttons">
+        <a href="LoginPage.html#loginBox" class="btn login">Log In</a>
+        <a href="LoginPage.html#signupBox" class="btn signup">Sign Up</a>
+      </div>
+    </nav>
+
+    <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle navigation menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </label>
+  </header>
+
 <section class="faq-section">
   <h2>Frequently Asked Questions</h2>
 

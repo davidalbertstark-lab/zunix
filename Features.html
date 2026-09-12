@@ -35,10 +35,41 @@
   />
 
   <!-- Custom CSS -->
+  <link rel="stylesheet" href="src/styles/Header.css" />
   <link rel="stylesheet" href="src/styles/Features.css" /> 
 </head>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
 <body>
+
+  <header class="header">
+    <div class="logo">
+      <a href="index.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:#00b050;">
+        <img src="src/img/favicon-32x32.png" alt="Zunix Logo" /><span>Zunix</span>
+      </a>
+    </div>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+
+    <nav class="nav">
+      <ul>
+        <li><a href="Features.html" style="color:#00b050;font-weight:700;">Features</a></li>
+        <li><a href="Rewards.html">Rewards</a></li>
+        <li><a href="Programs.html">Programs</a></li>
+        <li><a href="Events.html">Events</a></li>
+        <li><a href="Communities.html">Communities</a></li>
+      </ul>
+      <div class="cta-buttons">
+        <a href="LoginPage.html#loginBox" class="btn login">Log In</a>
+        <a href="LoginPage.html#signupBox" class="btn signup">Sign Up</a>
+      </div>
+    </nav>
+
+    <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle navigation menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </label>
+  </header>
 
   <section class="header-section">
     <div class="overlay"></div>
@@ -51,7 +82,7 @@
         Join the only platform built to power your entire student journey. Smarter, faster, and way beyond the ordinary.
       </p>
       <div class="hero-buttons">
-        <a href="LoginPage.html" class="btn-primary"">
+        <a href="LoginPage.html#signupBox" class="btn-primary">
           <i class="fas fa-user-plus"></i> Get Started Now
         </a>
         <a href="#features" class="btn-secondary">

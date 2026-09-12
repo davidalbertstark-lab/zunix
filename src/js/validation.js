@@ -38,11 +38,11 @@ export function validateDateOfBirth(dob) {
   return { valid: true };
 }
 
-/* ------------ Graduation year: current → current + 4 ------------ */
+/* ------------ Graduation year: current → current + 6 ------------ */
 export function validateGradYear(year) {
   const y = parseInt(year, 10);
   const current = new Date().getFullYear();
-  return !isNaN(y) && y >= current && y <= current + 4;
+  return !isNaN(y) && y >= current && y <= current + 6;
 }
 
 /* ------------ Level: must be between 100 and 500 ------------ */

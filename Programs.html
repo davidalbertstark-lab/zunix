@@ -7,9 +7,44 @@
   <link rel="icon" href="src/img/favicon-32x32.png" type="image/png" sizes="32x32" />
     <link rel="icon" href="src/img/favicon-16x16.png" type="image/png" sizes="16x16" />
     <link rel="apple-touch-icon" href="src/img/apple-touch-icon.png" sizes="180x180" />
+  <link rel="stylesheet" href="src/styles/Header.css" />
   <link rel="stylesheet" href="src/styles/Programs.css" />
+  <style>
+    body {
+      padding-top: 75px;
+    }
+  </style>
 </head>
 <body>
+  <header class="header">
+    <div class="logo">
+      <a href="index.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:#00b050;">
+        <img src="src/img/favicon-32x32.png" alt="Zunix Logo" /><span>Zunix</span>
+      </a>
+    </div>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+
+    <nav class="nav">
+      <ul>
+        <li><a href="Features.html">Features</a></li>
+        <li><a href="Rewards.html">Rewards</a></li>
+        <li><a href="Programs.html" style="color:#00b050;font-weight:700;">Programs</a></li>
+        <li><a href="Events.html">Events</a></li>
+        <li><a href="Communities.html">Communities</a></li>
+      </ul>
+      <div class="cta-buttons">
+        <a href="LoginPage.html#loginBox" class="btn login">Log In</a>
+        <a href="LoginPage.html#signupBox" class="btn signup">Sign Up</a>
+      </div>
+    </nav>
+
+    <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle navigation menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </label>
+  </header>
   <section class="programs-section">
     <div class="image-container">
       <img src="https://i.ibb.co/8L0j3PxY/teacher-at-school-980x654.jpg" alt="teacher-at-school-980x654" border="0">
@@ -96,7 +131,7 @@
 
         <!-- CTA Button -->
         <div class="cta-button-wrapper">
-          <a href="/programs/campus-ambassador" class="btn-primary">Join the Zunix Groundwalkers</a>
+          <a href="LoginPage.html#signupBox" class="btn-primary">Join the Zunix Groundwalkers</a>
         </div>
       </div>
     </div>
@@ -256,7 +291,7 @@
 
     <!-- CTA Button -->
     <div class="cta-button-wrapper">
-      <a href="/programs/creators-writers" class="btn-primary">Join the Creators & Writers Program</a>
+      <a href="LoginPage.html#signupBox" class="btn-primary">Join the Creators & Writers Program</a>
     </div>
   </div>
 </section>
@@ -322,7 +357,7 @@
 
     <!-- CTA Button -->
     <div class="cta-button-wrapper">
-      <a href="/programs/academic-help" class="btn-primary">Become a Lead Academic Helper</a>
+      <a href="LoginPage.html#signupBox" class="btn-primary">Become a Lead Academic Helper</a>
     </div>
   </div>
 </section>
@@ -373,7 +408,7 @@
 
     <!-- CTA Button -->
     <div class="cta-button-wrapper">
-      <a href="/programs/events-promos" class="btn-primary">Submit Your Event or Promo</a>
+      <a href="ContactUsPage.html" class="btn-primary">Submit Your Event or Promo</a>
     </div>
   </div>
 </section>

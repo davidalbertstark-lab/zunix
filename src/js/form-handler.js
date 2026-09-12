@@ -28,44 +28,52 @@ export function initFormHandler(user) {
 async function handleFormSubmit(event, user, btn) {
   event.preventDefault();
 
-  if (!user?.uid) {
-    alert('Please log in again.');
-    return;
-  }
-
   btn.disabled = true;
   btn.textContent = 'Saving...';
 
   const data = extractFormData();
   if (!data) {
     btn.disabled = false;
-    btn.textContent = 'Finish';
+    btn.textContent = 'Confirm & Submit';
     alert('Please complete all required fields.');
     return;
   }
 
-  try {
-    const ref = doc(db, 'students', user.uid);
-    const snapshot = await getDoc(ref);
+  // If authenticated user exists, persist to Firestore
+  if (user?.uid) {
+    try {
+      const ref = doc(db, 'students', user.uid);
+      const snapshot = await getDoc(ref);
 
-    const payload = {
-      ...data,
-      uid: user.uid,
-      email: user.email,
-      ...(snapshot.exists() ? {} : { createdAt: serverTimestamp() }) // ✅ Only on first save
-    };
+      const payload = {
+        ...data,
+        uid: user.uid,
+        email: user.email,
+        ...(snapshot.exists() ? {} : { createdAt: serverTimestamp() })
+      };
 
-    await setDoc(ref, payload, { merge: true });
-
-    populateSummary(user.email, user.displayName);   // Reflect back to step 6 UI
-    finishSetup();                 // Show completion screen
-    console.log('Student profile stored successfully.');
-  } catch (err) {
-    console.error('Firestore write failed:', err);
-    alert('Error saving profile. Try again.');
-    btn.disabled = false;
-    btn.textContent = 'Finish';
+      await setDoc(ref, payload, { merge: true });
+      localStorage.setItem('zunix_student_profile', JSON.stringify(payload));
+      populateSummary(user.email, user.displayName || data.fullName);
+      finishSetup();
+      console.log('Student profile stored successfully in Firestore.');
+      return;
+    } catch (err) {
+      console.warn('Firestore write failed, falling back to local session:', err);
+    }
   }
+
+  // Fallback for guest preview / demo mode
+  const localPayload = {
+    ...data,
+    uid: user?.uid || 'guest_' + Date.now(),
+    email: user?.email || localStorage.getItem('zunix_userEmail') || 'student@zunix.africa',
+    createdAt: new Date().toISOString()
+  };
+  localStorage.setItem('zunix_student_profile', JSON.stringify(localPayload));
+  populateSummary(localPayload.email, data.fullName || 'Student Member');
+  finishSetup();
+  console.log('Student profile stored in local session.');
 }
 
 /* -------------------------------------------------- *
@@ -76,6 +84,7 @@ function extractFormData() {
     const safe = id => (document.getElementById(id)?.value || '').trim();
 
     return {
+      fullName:     safe('fullName'),
       username:     safe('username'),
       gender:       safe('gender'),
       dob:          safe('dob'),

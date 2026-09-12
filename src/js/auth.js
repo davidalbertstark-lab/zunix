@@ -59,9 +59,11 @@ window.validateForm = async (e) => {
     const { user } = await createUserWithEmailAndPassword(auth, email, pwd);
     await updateProfile(user, { displayName: fullName });
     await saveProfile(user, { name: fullName });
+    localStorage.setItem('zunix_userName', fullName);
+    localStorage.setItem('zunix_userEmail', email);
 
     show("Account created! Redirecting…", "signUpMessage", true);
-    setTimeout(() => (window.location.href = "/setup-student.html"), 1500);
+    setTimeout(() => (window.location.href = "setup-student.html"), 1500);
   } catch (err) {
     show(err.message, "error-msg");
   }
@@ -76,10 +78,12 @@ window.handleLogin = async (e) => {
   const pwd = f.password.value;
 
   try {
-    await signInWithEmailAndPassword(auth, email, pwd);
+    const { user } = await signInWithEmailAndPassword(auth, email, pwd);
+    localStorage.setItem('zunix_userName', user.displayName || '');
+    localStorage.setItem('zunix_userEmail', user.email || email);
     show("Welcome back! Redirecting…", "signInMessage", true);
-    // 🔄 Redirect straight to the setup flow, not dashboard
-    setTimeout(() => (window.location.href = "/setup-student.html"), 1500);
+    // 🔄 Redirect straight to the setup flow
+    setTimeout(() => (window.location.href = "setup-student.html"), 1500);
   } catch (err) {
     show(err.message, "signInMessage");
   }
@@ -93,12 +97,14 @@ async function googleAuth(targetDiv, redirectPath) {
   try {
     const { user } = await signInWithPopup(auth, provider);
     await saveProfile(user); // Only saves if not yet saved
+    localStorage.setItem('zunix_userName', user.displayName || '');
+    localStorage.setItem('zunix_userEmail', user.email || '');
     window.location.href = redirectPath;
   } catch (err) {
     show(err.message, targetDiv);
   }
 }
 
-window.googleSignUp = () => googleAuth("signUpMessage", "/setup-student.html");
+window.googleSignUp = () => googleAuth("signUpMessage", "setup-student.html");
 // Also push sign-IN users to the same setup flow
-window.googleSignIn = () => googleAuth("signInMessage", "/setup-student.html");
+window.googleSignIn = () => googleAuth("signInMessage", "setup-student.html");

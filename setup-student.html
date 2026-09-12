@@ -18,16 +18,23 @@
       <!-- Step 1 -->
       <div class="step active">
         <h2>Step&nbsp;1: Basic Information</h2>
-        <label for="username">Username</label>
-<input
-  type="text"
-  id="username"
-  name="username"
-  required
-  pattern="[a-z0-9_]{3,20}"
-  title="3–20 characters. Lowercase letters, numbers, and underscores only."
-  placeholder="Enter username"
-/>
+        <label for="fullName">Full Name</label>
+        <input
+          type="text"
+          id="fullName"
+          name="fullName"
+          placeholder="Enter your full name"
+        />
+        <label for="username">Username <span class="required">*</span></label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          required
+          pattern="[a-z0-9_]{3,20}"
+          title="3–20 characters. Lowercase letters, numbers, and underscores only."
+          placeholder="e.g. david_stark"
+        />
         <div class="error" id="usernameError"></div>
         <button type="button" id="step1NextBtn">Next</button>
       </div>
@@ -43,6 +50,7 @@
           <option value="other">Other</option>
         </select>
         <div class="error" id="genderError"></div>
+        <button type="button" id="step2BackBtn">Back</button>
         <button type="button" id="step2NextBtn">Next</button>
       </div>
 
@@ -53,6 +61,7 @@
         <input type="date" id="dob" required />
         <div class="error" id="dobError"></div>
         <div id="dobMessage" style="margin-top:-15px;margin-bottom:15px;font-size:12px;"></div>
+        <button type="button" id="step3BackBtn">Back</button>
         <button type="button" id="step3NextBtn">Next</button>
       </div>
 
@@ -123,38 +132,51 @@
         <div class="error" id="gradYearError"></div>
 
         <button type="button" id="step5BackBtn">Back</button>
-        <button type="button" id="finishBtn">Finish</button>
+        <button type="button" id="finishBtn">Review ID Card →</button>
       </div>
 
-      <!-- Step 6: Confirmation -->
-      <div class="step neon-card">
-    <div class="checkmark">⚠️</div>
-    <h1>REVIEW <span>YOUR DETAILS</span></h1>
-    <p class="sub">Please confirm your info before clicking Submit.</p>
+      <!-- Step 6: Confirmation Profile Card Preview -->
+      <div class="step neon-card" id="step6ReviewCard">
+        <div class="card-badge">Verified Student Preview</div>
+        <div class="student-id-tag" id="summaryIdTag">ID: ZUN-2025-0042</div>
+        <h1>REVIEW <span>YOUR DETAILS</span></h1>
+        <p class="sub">Please confirm your student ID details before submitting.</p>
 
-    <div class="avatar">
-      <img src="boyss.png" alt="Avatar">
-    </div>
+        <div class="avatar">
+          <img id="summaryAvatar" src="src/img/boyss.png" alt="Student Avatar">
+        </div>
 
-    <div class="info">
-      <p class="info-row"><span class="label">Full Name:</span> <span class="value" id="summaryName"></span></p>
-      <p class="info-row"><span class="label">Username:</span> <span class="value" id="summaryUsername"></span></p>
-      <p class="info-row"><span class="label">Email:</span> <span class="value" id="summaryEmail"></span></p>
-      <p class="info-row"><span class="label">Institution:</span> <span class="value" id="summaryInstitution"></span></p>
-      <p class="info-row"><span class="label">Level:</span> <span class="value" id="summaryLevel">200 Level</span></p>
-    </div>
+        <div class="info">
+          <p class="info-row"><span class="label">Full Name:</span> <span class="value" id="summaryName">Student</span></p>
+          <p class="info-row"><span class="label">Username:</span> <span class="value" id="summaryUsername">@student</span></p>
+          <p class="info-row"><span class="label">Email:</span> <span class="value" id="summaryEmail">student@zunix.africa</span></p>
+          <p class="info-row"><span class="label">Campus:</span> <span class="value" id="summaryCampus">Lagos, NG</span></p>
+          <p class="info-row"><span class="label">Institution:</span> <span class="value" id="summaryInstitution">University of Lagos</span></p>
+          <p class="info-row"><span class="label">Course:</span> <span class="value" id="summaryCourse">Computer Science</span></p>
+          <p class="info-row"><span class="label">Faculty:</span> <span class="value" id="summaryFaculty">Science</span></p>
+          <p class="info-row"><span class="label">Level:</span> <span class="value" id="summaryLevel">200 Level</span></p>
+          <p class="info-row"><span class="label">Grad Year:</span> <span class="value" id="summaryGradYear">2027</span></p>
+        </div>
 
-<div class="button-row">
-  <button type="button" class="btn btn-back" id="step6BackBtn"> Back</button>
-  <button type="button" class="btn btn-submit" id="submitBtn">Submit </button>
-</div>
-  </div>
+        <div class="button-row">
+          <button type="button" class="btn btn-back" id="step6BackBtn">← Back</button>
+          <button type="button" class="btn btn-submit" id="submitBtn">Confirm & Submit</button>
+        </div>
+      </div>
 
       <!-- Step 7: Final Message -->
       <div class="step" id="step7">
-        <h2>Setup Complete!</h2>
-        <p>Welcome to the Zunix ecosystem 🎉</p>
-        <button id="completeSetupBtn">Finish Setup</button>
+        <div style="text-align:center; padding: 25px 10px;">
+          <div style="font-size: 3.5rem; margin-bottom: 1rem;">🎉</div>
+          <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: #00ffcc;">Setup Complete!</h2>
+          <p style="color: #ccffcc; margin-bottom: 1.8rem; font-size: 0.95rem;">
+            Welcome to the Zunix ecosystem! Your student ID card and campus profile have been successfully initialized.
+          </p>
+          <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+            <a href="index.html" class="btn" style="text-decoration: none; padding: 0.8rem 1.6rem; border-radius: 40px; background: #00b050; color: #fff; border: none; font-weight: 700;">Explore Hub</a>
+            <a href="profile-card.html" class="btn" style="text-decoration: none; padding: 0.8rem 1.6rem; border-radius: 40px; background: linear-gradient(90deg, #ff6600, #ff0066); color: #fff; border: none; font-weight: 700;">View ID Card Demo</a>
+          </div>
+        </div>
       </div>
 
     </form>

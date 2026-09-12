@@ -21,18 +21,22 @@ document.addEventListener('DOMContentLoaded', () => {
   initSetupForm();
 
   // Listen for Firebase auth state
-  onAuthChange(user => {
-    if (user) {
-      // Inject both full name *and* email into the confirmation summary
-      populateSummary(user.email, user.displayName || '');
-
-      // Attach Firestore submit handler with that user’s UID
-      initFormHandler(user);
-    } else {
-      // Not signed in — bounce to login
-      window.location.href = '/login.html';
-    }
-  });
+  try {
+    onAuthChange(user => {
+      if (user) {
+        populateSummary(user.email, user.displayName || '');
+        initFormHandler(user);
+      } else {
+        // Enable preview/guest testing mode without blocking with a redirect
+        initFormHandler(null);
+        populateSummary();
+      }
+    });
+  } catch (err) {
+    console.warn('Auth observer unavailable, falling back to preview mode:', err);
+    initFormHandler(null);
+    populateSummary();
+  }
 });
 
 /* -------------------------------------------------- *

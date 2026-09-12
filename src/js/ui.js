@@ -18,10 +18,12 @@ export async function initUI() {
   const stateSelect        = document.getElementById('state');
   const citySelect         = document.getElementById('city');
   const levelSelect        = document.getElementById('level');
+  const genderSelect       = document.getElementById('gender');
 
-  /* ---- Load region → state → city JSON ---- */
+  /* ---- Load region → state → city JSON (relative + fallback) ---- */
   try {
-    const res = await fetch('/data/location-data.json');
+    let res = await fetch('./data/location-data.json');
+    if (!res.ok) res = await fetch('/data/location-data.json');
     locationData = await res.json();
   } catch (err) {
     console.error('Failed to load location data:', err);
@@ -45,17 +47,28 @@ export async function initUI() {
     populateInstitutionOptions(citySelect.value.trim())
   );
 
-  levelSelect.addEventListener('change', populateGradYears); // 👈 auto-update grad years
+  levelSelect.addEventListener('change', populateGradYears); // auto-update grad years
+
+  if (genderSelect) {
+    genderSelect.addEventListener('change', () => {
+      const avatarImg = document.getElementById('summaryAvatar');
+      if (avatarImg) {
+        avatarImg.src = genderSelect.value === 'female' ? 'src/img/girls.png' : 'src/img/boyss.png';
+      }
+    });
+  }
 
   /* ---- Step navigation buttons ---- */
-  document.getElementById('step1NextBtn').addEventListener('click', nextStep);
-  document.getElementById('step2NextBtn').addEventListener('click', nextStep);
-  document.getElementById('step3NextBtn').addEventListener('click', nextStep);
-  document.getElementById('step4NextBtn').addEventListener('click', nextStep);
+  document.getElementById('step1NextBtn')?.addEventListener('click', nextStep);
+  document.getElementById('step2NextBtn')?.addEventListener('click', nextStep);
+  document.getElementById('step3NextBtn')?.addEventListener('click', nextStep);
+  document.getElementById('step4NextBtn')?.addEventListener('click', nextStep);
 
-  document.getElementById('step4BackBtn').addEventListener('click', prevStep);
-  document.getElementById('step5BackBtn').addEventListener('click', prevStep);
-  document.getElementById('step6BackBtn').addEventListener('click', prevStep);
+  document.getElementById('step2BackBtn')?.addEventListener('click', prevStep);
+  document.getElementById('step3BackBtn')?.addEventListener('click', prevStep);
+  document.getElementById('step4BackBtn')?.addEventListener('click', prevStep);
+  document.getElementById('step5BackBtn')?.addEventListener('click', prevStep);
+  document.getElementById('step6BackBtn')?.addEventListener('click', prevStep);
 
   /* ---- Strict Step-5 guard ---- */
   document.getElementById('finishBtn').addEventListener('click', () => {
@@ -110,7 +123,7 @@ export async function initUI() {
     }
 
     if (isValid) {
-      showFinalStep();       
+      nextStep();
       populateSummary();    
     }
   });
@@ -201,7 +214,8 @@ async function populateInstitutionOptions(city) {
   if (!city) return;
 
   try {
-    const res = await fetch('/json/institution.json');
+    let res = await fetch('./json/institution.json');
+    if (!res.ok) res = await fetch('/json/institution.json');
     const map = await res.json();
     (map.institutions[city] || []).forEach(name => {
       const opt = document.createElement('option');
@@ -288,23 +302,75 @@ function validateStep(step) {
  * Summary display                                    *
  * -------------------------------------------------- */
 export function populateSummary(email = null, fullName = null) {
-  if (fullName) {
-    document.getElementById('summaryName').textContent = fullName;
-  }
-  if (email) {
-    document.getElementById('summaryEmail').textContent = email;
+  const enteredFullName = document.getElementById('fullName')?.value?.trim();
+  const nameEl = document.getElementById('summaryName');
+  if (nameEl) {
+    nameEl.textContent = fullName || enteredFullName || localStorage.getItem('zunix_userName') || 'Student Member';
   }
 
-  document.getElementById('summaryUsername').textContent =
-    document.getElementById('username').value || 'Unavailable';
+  const emailEl = document.getElementById('summaryEmail');
+  if (emailEl) {
+    emailEl.textContent = email || localStorage.getItem('zunix_userEmail') || 'student@zunix.africa';
+  }
 
-  document.getElementById('summaryInstitution').textContent =
-    document.getElementById('institution').value;
+  const uname = document.getElementById('username')?.value?.trim();
+  const unameEl = document.getElementById('summaryUsername');
+  if (unameEl) {
+    unameEl.textContent = uname ? `@${uname}` : '@student';
+  }
+
+  const inst = document.getElementById('institution')?.value?.trim();
+  const instEl = document.getElementById('summaryInstitution');
+  if (instEl) {
+    instEl.textContent = inst || 'Institution';
+  }
+
+  const course = document.getElementById('course')?.value?.trim();
+  const courseEl = document.getElementById('summaryCourse');
+  if (courseEl) {
+    courseEl.textContent = course || 'General Studies';
+  }
+
+  const faculty = document.getElementById('faculty')?.value?.trim();
+  const facultyEl = document.getElementById('summaryFaculty');
+  if (facultyEl) {
+    facultyEl.textContent = faculty || 'Faculty';
+  }
+
+  const state = document.getElementById('state')?.value?.trim();
+  const city = document.getElementById('city')?.value?.trim();
+  const campusEl = document.getElementById('summaryCampus');
+  if (campusEl) {
+    campusEl.textContent = (city && state) ? `${city}, ${state}` : (state || 'Campus Hub');
+  }
 
   const levelSelect = document.getElementById('level');
-  const levelLabel =
-    levelSelect.options[levelSelect.selectedIndex]?.text || '';
-  document.getElementById('summaryLevel').textContent = levelLabel;
+  const levelLabel = levelSelect?.options[levelSelect?.selectedIndex]?.text || 'Level';
+  const levelEl = document.getElementById('summaryLevel');
+  if (levelEl) {
+    levelEl.textContent = levelLabel;
+  }
+
+  const gradYear = document.getElementById('gradYear')?.value?.trim();
+  const gradEl = document.getElementById('summaryGradYear');
+  if (gradEl) {
+    gradEl.textContent = gradYear || (new Date().getFullYear() + 4).toString();
+  }
+
+  // Dynamic Avatar switching based on gender
+  const gender = document.getElementById('gender')?.value?.toLowerCase();
+  const avatarImg = document.getElementById('summaryAvatar');
+  if (avatarImg) {
+    avatarImg.src = gender === 'female' ? 'src/img/girls.png' : 'src/img/boyss.png';
+    avatarImg.alt = gender === 'female' ? 'Female Student Avatar' : 'Male Student Avatar';
+  }
+
+  // Dynamic Student ID badge
+  const idTag = document.getElementById('summaryIdTag');
+  if (idTag) {
+    const seed = (uname || 'STARK').toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 4);
+    idTag.textContent = `ID: ZUN-${new Date().getFullYear()}-${seed || 'ZUNX'}`;
+  }
 }
 
 /* -------------------------------------------------- *

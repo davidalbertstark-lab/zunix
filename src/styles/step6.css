@@ -6,7 +6,7 @@
 }
 
 body {
-  background: url('src/img/bg.png') no-repeat center center fixed;
+  background: #0f1016 url('../img/bg.png') no-repeat center center fixed;
   background-size: cover;
   font-family: 'Poppins', sans-serif;
   color: #ffffff;
@@ -21,7 +21,8 @@ body {
 .neon-card {
   position: relative;
   width: 100%;
-  max-width: 420px;
+  max-width: 440px;
+  margin: 0 auto;
   padding: 2rem;
   text-align: center;
   border-radius: 28px;
@@ -29,15 +30,15 @@ body {
   /* Gradient border using double bg trick */
   border: 3px solid transparent;
   background-image:
-    url('src/img/bg.png'),
+    url('../img/bg.png'),
     linear-gradient(135deg, #00ffcc, #00ff00, #ffcc00, #ff00cc);
   background-origin: border-box;
   background-clip: padding-box, border-box;
   -webkit-background-clip: padding-box, border-box;
 
   /* Glass effect if supported */
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 
   box-shadow: 0 0 30px rgba(0, 255, 200, 0.3);
   transition: all 0.3s ease;
@@ -103,7 +104,7 @@ h1 span {
   color: #aaffee;
   border: 3px solid transparent;
   background-image:
-    url('bg.png'),
+    url('../img/bg.png'),
     linear-gradient(135deg, #00ffcc, #00ff00, #ffcc00, #ff00cc);
   background-origin: border-box;
   background-clip: padding-box, border-box;
@@ -180,3 +181,40 @@ h1 span {
   transform: scale(1.05);
   box-shadow: 0 0 25px #ff3399ee;
 }
+
+.card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0, 255, 153, 0.12);
+  border: 1px solid rgba(0, 255, 153, 0.4);
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #00ff99;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+
+.card-badge::before {
+  content: "●";
+  color: #00ff99;
+  font-size: 0.65rem;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+.student-id-tag {
+  font-family: monospace;
+  font-size: 0.8rem;
+  color: #ffcc00;
+  letter-spacing: 2px;
+  margin-top: 4px;
+  font-weight: 700;
+}

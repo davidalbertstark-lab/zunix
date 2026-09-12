@@ -48,7 +48,7 @@ function attachInstitutionAutocomplete() {
   if (!inputEl || !listEl) return;
 
   fetch("./json/institution.json")
-    .catch(() => fetch("/json/institution.json"))
+    .catch(() => fetch("json/institution.json"))
     .then(res => res.json())
     .then(data => {
       const schools = Object.values(data.institutions).flat();

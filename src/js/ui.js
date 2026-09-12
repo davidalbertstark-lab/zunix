@@ -23,7 +23,7 @@ export async function initUI() {
   /* ---- Load region → state → city JSON (relative + fallback) ---- */
   try {
     let res = await fetch('./data/location-data.json');
-    if (!res.ok) res = await fetch('/data/location-data.json');
+    if (!res.ok) res = await fetch('data/location-data.json');
     locationData = await res.json();
   } catch (err) {
     console.error('Failed to load location data:', err);
@@ -215,7 +215,7 @@ async function populateInstitutionOptions(city) {
 
   try {
     let res = await fetch('./json/institution.json');
-    if (!res.ok) res = await fetch('/json/institution.json');
+    if (!res.ok) res = await fetch('json/institution.json');
     const map = await res.json();
     (map.institutions[city] || []).forEach(name => {
       const opt = document.createElement('option');

@@ -100,8 +100,8 @@
   letter-spacing: 0.1em;
   font-weight: 900;
   text-transform: uppercase;
-  color: #f4f4f9;
-  text-shadow: 0 0 3px #33fff3, 0 0 6px #00b050;
+  color: var(--text-primary);
+  text-shadow: none;
   z-index: 1;
   position: relative;
 }
@@ -112,7 +112,7 @@
   color: var(--text-secondary, #94a3b8);
   margin-bottom: 1.5rem;
   line-height: 1.4;
-  text-shadow: 0 0 3px #00b050;
+  text-shadow: none;
   z-index: 1;
   position: relative;
 }
@@ -128,10 +128,10 @@
 
 /* Metric cards */
 .metric-card {
-  background: rgba(0, 0, 0, 0.25);
+  background: var(--bg-surface-alt, #e9eff5);
   border-radius: 15px;
   padding: 1.2rem 0.8rem;
-  box-shadow: 0 0 8px 1px #33fff3;
+  box-shadow: var(--card-shadow); border: 1px solid var(--border-subtle);
   backdrop-filter: saturate(180%) blur(5px);
   position: relative;
   overflow: hidden;
@@ -163,7 +163,7 @@
   margin: 0;
   font-weight: 900;
   color: var(--accent-emerald, #00ff99);
-  text-shadow: 0 0 5px #33fff3, 0 0 10px #00b050;
+  text-shadow: none;
 }
 
 .metric-card p {
@@ -173,7 +173,7 @@
   color: var(--text-secondary, #94a3b8);
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  text-shadow: 0 0 3px #00b050;
+  text-shadow: none;
 }
 
 /* Footer */
@@ -183,7 +183,7 @@
   font-weight: 600;
   color: var(--text-secondary, #94a3b8);
   font-style: italic;
-  text-shadow: 0 0 5px #00b050, 0 0 8px #33fff3;
+  text-shadow: none;
   line-height: 1.4;
   z-index: 1;
   position: relative;

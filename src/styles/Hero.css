@@ -6,11 +6,11 @@
   overflow: visible;
   display: flex;
   align-items: center;
-  background: radial-gradient(ellipse at 50% 30%, rgba(0, 255, 153, 0.12) 0%, var(--bg-base, #0a0d14) 75%);
+  background: radial-gradient(ellipse at 50% 30%, rgba(0, 154, 68, 0.08) 0%, var(--bg-base) 75%);
   text-align: center;
   flex-direction: column;
   font-family: 'Poppins', sans-serif;
-  color: #fff;
+  color: var(--text-primary);
   flex-wrap: wrap;
   justify-content: space-between;
   padding-left: 24px;
@@ -30,7 +30,7 @@
   padding: 0 5vw;
   max-width: 1300px;
   margin: auto;
-  color: white;
+  color: var(--text-primary);
 }
 
 
@@ -101,7 +101,7 @@
   right: 60%;
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
-  color: #f4f4f4;
+  color: var(--text-primary);
   font-size: 1rem;
   opacity: 0;
   transform: scale(0.9);
@@ -191,13 +191,13 @@
 /* Primary Brand Button */
 .primary-btn {
   background: linear-gradient(to right, #00b050, #00f2fe);
-  color: white;
+  color: var(--text-primary);
 }
 
 /* Secondary Button Outline Style */
 .secondary-btn {
   background: var(--bg-glass-subtle, rgba(255, 255, 255, 0.05));
-  color: var(--text-primary, #ffffff);
+  color: var(--text-primary);
   border: 1px solid var(--border-glass, rgba(0, 255, 200, 0.35));
 }
 

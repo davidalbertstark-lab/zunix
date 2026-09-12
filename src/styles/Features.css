@@ -494,5 +494,5 @@ p {
 
 .footer-right {
       font-family: monospace;
-      color: #ddd;
+      color: var(--text-muted, #64748b);
 }

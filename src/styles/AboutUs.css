@@ -199,7 +199,7 @@ body {
 
 .footer {
   background-color: var(--bg-surface, #111625);
-  color: #ffffff;
+  color: var(--text-secondary, #475569);
   text-align: center;
   padding: 20px;
 }
@@ -211,5 +211,5 @@ body {
 
 .footer-right {
       font-family: monospace;
-      color: #ddd;
+      color: var(--text-muted, #64748b);
 }

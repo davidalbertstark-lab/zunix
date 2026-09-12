@@ -41,7 +41,7 @@
      .footer {
   background-color: var(--bg-surface, #111625);
   border-top: 1px solid var(--border-glass, rgba(0, 255, 200, 0.15));
-  color: #ffffff;
+  color: var(--text-secondary, #475569);
   text-align: center;
   padding: 20px;
 }
@@ -53,5 +53,5 @@
 
 .footer-right {
       font-family: monospace;
-      color: #ddd;
+      color: var(--text-muted, #64748b);
 }

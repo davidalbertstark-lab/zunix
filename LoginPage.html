@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="refresh" content="0; url=pages/login.html" />
   <title>Redirecting to Zunix Login...</title>
-  <script>location.replace('pages/login.html');</script>
+  <script>location.replace('pages/login.html' + (location.hash || ''));</script>
 </head>
 <body style="font-family:sans-serif;text-align:center;padding:50px;background:#0a0d14;color:#f0f6fc;">
   <p>Redirecting to <a href="pages/login.html" style="color:#00ff99;">Zunix Login</a>...</p>

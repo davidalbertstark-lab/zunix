@@ -451,34 +451,8 @@ setup_processed = setup_processed.replace('</body>',
 write_file(os.path.join(PAGES_DIR, "setup-student.html"), setup_processed)
 
 # -------------------------------------------------------------
-# 13. BUILD login.html
+# 13. BUILD login.html (Preserve modern split layout)
 # -------------------------------------------------------------
-login_raw = read_file(os.path.join(ZUNIX_DIR, "LoginPage.html"))
-login_processed = replace_links_and_assets(login_raw)
-login_processed = login_processed.replace('src/styles/AccessPage.css', '../src/styles/AccessPage.css')
-login_processed = login_processed.replace('<head>', '<head>\n  <link rel="stylesheet" href="../src/styles/theme.css" />\n  <link rel="stylesheet" href="../src/styles/Header.css" />')
-login_processed = login_processed.replace('src/js/auth.js', '../src/js/auth.js')
-
-# Add a top navigation bar with back to home
-top_bar = """  <div style="position:fixed;top:0;left:0;right:0;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;background:var(--header-bg);border-bottom:1px solid var(--header-border);backdrop-filter:blur(14px);z-index:1000;">
-    <a href="../index.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;color:var(--accent-emerald);">
-      <img src="../src/img/favicon-32x32.png" alt="Zunix Logo" style="width:28px;height:28px;" />
-      <span>Zunix</span>
-    </a>
-    <div style="display:flex;align-items:center;gap:12px;">
-      <a href="../index.html" style="color:var(--text-secondary);font-size:0.88rem;font-weight:600;text-decoration:none;">← Return Home</a>
-      <button class="theme-toggle-btn" aria-label="Toggle Theme" title="Toggle Dark/Light Mode" style="width:32px;height:32px;font-size:0.9rem;">
-        <span class="theme-icon">☀️</span>
-      </button>
-    </div>
-  </div>
-"""
-login_processed = login_processed.replace('<body class="access-body">', f'<body class="access-body" style="padding-top:70px;">\n{top_bar}')
-login_processed = login_processed.replace('</body>',
-    """  <script type="module" src="../src/js/theme.js"></script>
-  <script type="module" src="../src/js/i18n.js"></script>
-</body>""")
-
-write_file(os.path.join(PAGES_DIR, "login.html"), login_processed)
+print("login.html already preserved with executive 2-column split layout")
 
 print("\nALL 16 SUBPAGES GENERATED IN pages/ SUCCESSFULLY!")

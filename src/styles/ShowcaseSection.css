@@ -1,5 +1,5 @@
 .showcase-section{
-    background: linear-gradient(135deg, #01360d, #001e0d);
+    background: var(--bg-surface, #111625);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,16 +9,14 @@
 
 }
 .metrics-showcase {
-  background: rgba(1, 54, 13, 0.75);
+  background: var(--bg-glass-card, rgba(22, 28, 46, 0.85));
   backdrop-filter: saturate(180%) blur(20px);
   border-radius: 20px;
   padding: 2rem 1.5rem;
   width: 95%;
   max-width: 1200px;
   margin: 2rem auto;
-  box-shadow:
-    0 0 10px 2px #33fff3,
-    inset 0 0 20px 2px #00b050;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(0, 255, 153, 0.15); border: 1px solid var(--border-glass, rgba(0,255,200,0.25));
   text-align: center;
   border: 1px solid transparent;
   overflow: hidden;
@@ -111,7 +109,7 @@
 .metrics-header p {
   font-size: 1rem;
   font-weight: 600;
-  color: #c3ffe2;
+  color: var(--text-secondary, #94a3b8);
   margin-bottom: 1.5rem;
   line-height: 1.4;
   text-shadow: 0 0 3px #00b050;
@@ -164,7 +162,7 @@
   font-size: 1.8rem;
   margin: 0;
   font-weight: 900;
-  color: #33fff3;
+  color: var(--accent-emerald, #00ff99);
   text-shadow: 0 0 5px #33fff3, 0 0 10px #00b050;
 }
 
@@ -172,7 +170,7 @@
   margin-top: 0.4rem;
   font-size: 0.8rem;
   font-weight: 700;
-  color: #ccf5dd;
+  color: var(--text-secondary, #94a3b8);
   letter-spacing: 0.03em;
   text-transform: uppercase;
   text-shadow: 0 0 3px #00b050;
@@ -183,7 +181,7 @@
   margin-top: 2rem;
   font-size: 0.9rem;
   font-weight: 600;
-  color: #ccf5dd;
+  color: var(--text-secondary, #94a3b8);
   font-style: italic;
   text-shadow: 0 0 5px #00b050, 0 0 8px #33fff3;
   line-height: 1.4;

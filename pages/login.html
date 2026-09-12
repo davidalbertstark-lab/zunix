@@ -1,90 +1,264 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="../src/styles/theme.css" />
-  <link rel="stylesheet" href="../src/styles/Header.css" />
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Zunix Access</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zunix Student Access — Sign In or Create Account</title>
+  <link rel="icon" href="../src/img/favicon-32x32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="../src/img/favicon-16x16.png" type="image/png" sizes="16x16" />
+  <link rel="apple-touch-icon" href="../src/img/apple-touch-icon.png" sizes="180x180" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../src/styles/theme.css" />
   <link rel="stylesheet" href="../src/styles/AccessPage.css" />
 </head>
-<body class="access-body" style="padding-top:70px;">
-  <div style="position:fixed;top:0;left:0;right:0;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;background:var(--header-bg);border-bottom:1px solid var(--header-border);backdrop-filter:blur(14px);z-index:1000;">
-    <a href="../index.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;color:var(--accent-emerald);">
-      <img src="../src/img/favicon-32x32.png" alt="Zunix Logo" style="width:28px;height:28px;" />
+<body class="access-body">
+
+  <!-- Fixed Top Header -->
+  <header class="auth-top-header">
+    <a href="../index.html" class="auth-brand">
+      <img src="../src/img/favicon-32x32.png" alt="Zunix Logo" />
       <span>Zunix</span>
     </a>
-    <div style="display:flex;align-items:center;gap:12px;">
-      <a href="../index.html" style="color:var(--text-secondary);font-size:0.88rem;font-weight:600;text-decoration:none;">← Return Home</a>
-      <button class="theme-toggle-btn" aria-label="Toggle Theme" title="Toggle Dark/Light Mode" style="width:32px;height:32px;font-size:0.9rem;">
+    <div class="auth-top-nav">
+      <a href="../index.html" class="auth-home-link">
+        <i class="fas fa-arrow-left"></i> Return Home
+      </a>
+      <button class="theme-toggle-btn" aria-label="Toggle Theme" title="Toggle Dark/Light Mode" style="width:34px;height:34px;font-size:0.95rem;background:var(--bg-glass-subtle);border:1px solid var(--border-subtle);border-radius:50%;cursor:pointer;">
         <span class="theme-icon">☀️</span>
       </button>
     </div>
-  </div>
+  </header>
 
+  <!-- Split Screen Auth Experience -->
+  <main class="auth-page-wrapper">
+    <div class="auth-split-layout">
 
-  <main class="access-container" id="accessContainer">
-    
-    <!-- Sign Up Section -->
-    <section class="form-box active" id="signupBox" aria-labelledby="signup-heading">
-      <div class="icon">
-        <img src="../src/img/android-chrome-512x512.png" alt="Zunix Logo" />
-      </div>
-      <h2 id="signup-heading">Create Your Account</h2>
-      <div id="signUpMessage" class="messageDiv" style="display:none;"></div>
-      <form id="signupForm" action="#" method="POST" onsubmit="return validateForm(event)">
-        <input type="text" name="fullName" placeholder="Full Name" required />
-        <input type="email" name="email" placeholder="Email Address" required />
-        <input type="password" name="password" placeholder="Password" required />
-        <input type="password" name="confirmPassword" placeholder="Confirm Password" required />
-        <p id="error-msg" class="error-msg" style="display:none; color:red;"></p>
-        <button type="submit" class="access-button">Sign Up</button>
-      </form>
-      <div class="demacate">or</div>
-      <button class="google-btn" type="button" onclick="googleSignUp()">
-        <img src="../src/img/google.png" alt="Google Icon" />
-        Sign Up with Google
-      </button>
-      <p class="login-footer">Already have an account? <a href="#" onclick="showLogin()">Sign In</a></p>
-    </section>
+      <!-- Left Column: Value Prop & Brand Showcase (Desktop) -->
+      <section class="auth-showcase-panel">
+        <div>
+          <div class="showcase-badge">
+            <i class="fas fa-shield-alt"></i> VERIFIED STUDENT HUB
+          </div>
+          <h1 class="showcase-headline">
+            Empower Your <br />
+            <span class="gradient-text">Student Journey</span>
+          </h1>
+          <p class="showcase-subtext">
+            Access study tools, monetize your skills, earn real campus rewards, and level up with fellow innovators across top universities.
+          </p>
 
-    <!-- Login Section -->
-    <section class="form-box" id="loginBox" aria-labelledby="login-heading">
-      <div class="icon">
-        <img src="../src/img/android-chrome-512x512.png" alt="Zunix Logo" />
-      </div>
-      <h2 id="login-heading">Welcome Back</h2>
-      <div id="signInMessage" class="messageDiv" style="display:none;"></div>
-      <form class="login-form" action="#" method="POST" onsubmit="return handleLogin(event)">
-        <input type="email" name="email" placeholder="you@example.com" required />
-        <input type="password" name="password" placeholder="Enter your password" required />
-        <div class="remember">
-          <input type="checkbox" id="remember" />
-          <label for="remember">Remember me</label>
+          <div class="showcase-perks">
+            <div class="perk-item">
+              <div class="perk-icon">⚡</div>
+              <div>
+                <h4>Gamified Rewards & XP</h4>
+                <p>Earn verified Zunix Points (ZP) on campus for bounties, peer reviews, and leaderboards.</p>
+              </div>
+            </div>
+
+            <div class="perk-item">
+              <div class="perk-icon">🪪</div>
+              <div>
+                <h4>Official Digital Student ID</h4>
+                <p>Generate high-resolution cryptographic digital badges verified across the campus network.</p>
+              </div>
+            </div>
+
+            <div class="perk-item">
+              <div class="perk-icon">🚀</div>
+              <div>
+                <h4>Student Freelance & Gigs</h4>
+                <p>Monetize coding, design, writing, and tutoring directly with verified campus clients.</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <button type="submit" class="access-button">Log In</button>
-      </form>
-      <div class="forgot-password"><a href="#">Forgot password?</a></div>
-      <div class="demacate">or</div>
-      <button class="google-btn" type="button" onclick="googleSignIn()">
-        <img src="../src/img/google.png" alt="Google Icon" />
-        Sign in with Google
-      </button>
-      <p class="signin-link">Don’t have an account? <a href="#" onclick="showSignup()">Sign Up</a></p>
-    </section>
 
+        <!-- Social Proof Stats -->
+        <div class="showcase-stat-badge">
+          <div class="stat-avatars">
+            <img src="../src/img/boyss.png" alt="Student avatar" />
+            <img src="../src/img/girls.png" alt="Student avatar" />
+            <div class="stat-circle">+10k</div>
+          </div>
+          <div>
+            <strong>10,000+ Students Strong</strong>
+            <span>Active across 25+ campuses nationwide</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Column: Authentication Card Panel -->
+      <section class="auth-card-panel">
+        <div class="access-container">
+
+          <!-- Segmented Tab Switcher -->
+          <div class="auth-tabs" role="tablist">
+            <button type="button" class="auth-tab active" id="tabLogin" role="tab" aria-selected="true" onclick="showLogin()">
+              Sign In
+            </button>
+            <button type="button" class="auth-tab" id="tabSignup" role="tab" aria-selected="false" onclick="showSignup()">
+              Create Account
+            </button>
+          </div>
+
+          <!-- Fast Google OAuth -->
+          <button class="google-btn" type="button" onclick="googleAuthHandler()">
+            <img src="../src/img/google.png" alt="Google logo" />
+            <span>Continue with Google</span>
+          </button>
+
+          <div class="demacate">
+            <span>or with email</span>
+          </div>
+
+          <!-- SIGN IN FORM BOX -->
+          <div class="form-box active" id="loginBox" aria-labelledby="login-heading">
+            <div id="signInMessage" class="messageDiv" style="display:none;"></div>
+            
+            <form class="login-form" id="loginForm" action="#" method="POST" onsubmit="return handleLogin(event)">
+              <div class="input-group">
+                <label for="loginEmail">Email Address</label>
+                <div class="input-field-wrap">
+                  <i class="fas fa-envelope input-icon"></i>
+                  <input type="email" id="loginEmail" name="email" placeholder="you@example.com" required autocomplete="email" />
+                </div>
+              </div>
+
+              <div class="input-group">
+                <div class="label-row">
+                  <label for="loginPassword">Password</label>
+                  <a href="#" class="forgot-link" onclick="alert('Password reset link will be sent to your registered student email address.')">Forgot?</a>
+                </div>
+                <div class="input-field-wrap">
+                  <i class="fas fa-lock input-icon"></i>
+                  <input type="password" id="loginPassword" name="password" placeholder="Enter your password" required autocomplete="current-password" />
+                </div>
+              </div>
+
+              <div class="remember-row">
+                <label class="checkbox-label" for="remember">
+                  <input type="checkbox" id="remember" name="remember" />
+                  <span>Remember this device</span>
+                </label>
+              </div>
+
+              <button type="submit" class="access-button">
+                Sign In to Hub
+              </button>
+            </form>
+
+            <p class="switch-mode-text">
+              Don’t have an account yet? <a href="#" onclick="showSignup()">Create an account</a>
+            </p>
+          </div>
+
+          <!-- SIGN UP FORM BOX -->
+          <div class="form-box" id="signupBox" aria-labelledby="signup-heading">
+            <div id="signUpMessage" class="messageDiv" style="display:none;"></div>
+
+            <form id="signupForm" action="#" method="POST" onsubmit="return validateForm(event)">
+              <div class="input-group">
+                <label for="signupFullName">Full Name</label>
+                <div class="input-field-wrap">
+                  <i class="fas fa-user input-icon"></i>
+                  <input type="text" id="signupFullName" name="fullName" placeholder="e.g. David Stark" required autocomplete="name" />
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label for="signupEmail">Email Address</label>
+                <div class="input-field-wrap">
+                  <i class="fas fa-envelope input-icon"></i>
+                  <input type="email" id="signupEmail" name="email" placeholder="student@university.edu" required autocomplete="email" />
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label for="signupPassword">Password</label>
+                <div class="input-field-wrap">
+                  <i class="fas fa-lock input-icon"></i>
+                  <input type="password" id="signupPassword" name="password" placeholder="Min. 6 chars with number/special" required autocomplete="new-password" />
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label for="signupConfirmPassword">Confirm Password</label>
+                <div class="input-field-wrap">
+                  <i class="fas fa-shield-alt input-icon"></i>
+                  <input type="password" id="signupConfirmPassword" name="confirmPassword" placeholder="Re-enter password" required autocomplete="new-password" />
+                </div>
+              </div>
+
+              <p id="error-msg" class="error-msg" style="display:none;"></p>
+
+              <button type="submit" class="access-button">
+                Create Free Account
+              </button>
+            </form>
+
+            <p class="switch-mode-text">
+              Already have an account? <a href="#" onclick="showLogin()">Sign In</a>
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
   </main>
 
-  <!-- Scripts -->
+  <!-- Interactive Scripts -->
   <script>
-    function showMessage(message, divId) {
+    function showLogin() {
+      document.getElementById("signupBox").classList.remove("active");
+      document.getElementById("loginBox").classList.add("active");
+      document.getElementById("tabLogin").classList.add("active");
+      document.getElementById("tabSignup").classList.remove("active");
+      document.getElementById("tabLogin").setAttribute("aria-selected", "true");
+      document.getElementById("tabSignup").setAttribute("aria-selected", "false");
+      if (history.replaceState) history.replaceState(null, '', '#loginBox');
+    }
+
+    function showSignup() {
+      document.getElementById("loginBox").classList.remove("active");
+      document.getElementById("signupBox").classList.add("active");
+      document.getElementById("tabSignup").classList.add("active");
+      document.getElementById("tabLogin").classList.remove("active");
+      document.getElementById("tabSignup").setAttribute("aria-selected", "true");
+      document.getElementById("tabLogin").setAttribute("aria-selected", "false");
+      if (history.replaceState) history.replaceState(null, '', '#signupBox');
+    }
+
+    function googleAuthHandler() {
+      const activeIsSignup = document.getElementById("signupBox").classList.contains("active");
+      if (activeIsSignup && typeof window.googleSignUp === 'function') {
+        window.googleSignUp();
+      } else if (typeof window.googleSignIn === 'function') {
+        window.googleSignIn();
+      } else {
+        alert('Google authentication initializing. Please continue with email.');
+      }
+    }
+
+    function showMessage(message, divId, isGood = false) {
       const div = document.getElementById(divId);
       if (!div) return;
       div.style.display = "block";
       div.innerHTML = message;
-      div.style.opacity = 1;
+      div.style.opacity = "1";
+      if (isGood) {
+        div.style.borderColor = "var(--accent-emerald, #00ff99)";
+        div.style.color = "var(--accent-emerald, #00ff99)";
+      } else {
+        div.style.borderColor = "#ff4d4d";
+        div.style.color = "#ff4d4d";
+      }
       setTimeout(() => {
-        div.style.opacity = 0;
+        div.style.transition = "opacity 0.4s ease";
+        div.style.opacity = "0";
+        setTimeout(() => div.style.display = "none", 400);
       }, 5000);
     }
 
@@ -93,33 +267,21 @@
       return password.length >= 6 && passwordRegex.test(password);
     }
 
-    function getInputValue(id) {
-      return document.getElementById(id)?.value.trim();
-    }
+    window.showMessage = showMessage;
+    window.isPasswordStrong = isPasswordStrong;
 
-    function showLogin() {
-      document.getElementById("signupBox").classList.remove("active");
-      document.getElementById("loginBox").classList.add("active");
-    }
-
-    function showSignup() {
-      document.getElementById("loginBox").classList.remove("active");
-      document.getElementById("signupBox").classList.add("active");
-    }
-
+    // Read URL hash on load (e.g. #signupBox or #loginBox)
     window.addEventListener('DOMContentLoaded', () => {
-  const hash = window.location.hash;
-
-  if (hash === '#loginBox') {
-    showLogin();
-  } else if (hash === '#signupBox') {
-    showSignup();
-  }
-});
-
+      if (window.location.hash === '#signupBox') {
+        showSignup();
+      } else {
+        showLogin();
+      }
+    });
   </script>
-  <script type="module" src="../src/js/auth.js"></script>
+
   <script type="module" src="../src/js/theme.js"></script>
   <script type="module" src="../src/js/i18n.js"></script>
+  <script type="module" src="../src/js/auth.js"></script>
 </body>
 </html>

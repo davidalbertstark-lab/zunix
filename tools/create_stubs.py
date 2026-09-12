@@ -29,7 +29,7 @@ for filename, (target, title) in stubs.items():
   <meta charset="UTF-8" />
   <meta http-equiv="refresh" content="0; url={target}" />
   <title>Redirecting to {title}...</title>
-  <script>location.replace('{target}');</script>
+  <script>location.replace('{target}' + (location.hash || ''));</script>
 </head>
 <body style="font-family:sans-serif;text-align:center;padding:50px;background:#0a0d14;color:#f0f6fc;">
   <p>Redirecting to <a href="{target}" style="color:#00ff99;">{title}</a>...</p>
@@ -38,6 +38,5 @@ for filename, (target, title) in stubs.items():
 """
     with open(filepath, "w", encoding="utf-8") as f:
         f.write(content)
-    print(f"Created redirect stub for {filename} -> {target}")
 
-print("\nALL REDIRECT STUBS CREATED!")
+print("Updated all root redirect stubs with location.hash forwarding!")

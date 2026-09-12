@@ -6,7 +6,7 @@
   overflow: visible;
   display: flex;
   align-items: center;
-  background: linear-gradient(to right, #00b050, #01360d, #d4e3ff);
+  background: radial-gradient(ellipse at 50% 30%, rgba(0, 255, 153, 0.12) 0%, var(--bg-base, #0a0d14) 75%);
   text-align: center;
   flex-direction: column;
   font-family: 'Poppins', sans-serif;
@@ -38,14 +38,16 @@
   font-size: 3rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  color: #33fff3;
+  background: linear-gradient(135deg, var(--accent-emerald, #00ff99), var(--accent-cyan, #00f0ff));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .subtext {
   font-size: 0.8rem;
   font-weight: 400;
   max-width: 550px;
-  color: #ccf5dd;
+  color: var(--text-secondary, #94a3b8);
 }
 
 
@@ -194,9 +196,15 @@
 
 /* Secondary Button Outline Style */
 .secondary-btn {
-  background: #ffffff;
-  color: #00b050;
-  border: 2px solid #00b050;
+  background: var(--bg-glass-subtle, rgba(255, 255, 255, 0.05));
+  color: var(--text-primary, #ffffff);
+  border: 1px solid var(--border-glass, rgba(0, 255, 200, 0.35));
+}
+
+.secondary-btn:hover {
+  background: rgba(0, 255, 153, 0.12);
+  border-color: var(--accent-emerald, #00ff99);
+  color: var(--accent-emerald, #00ff99);
 }
 
 /* Hover Effects */
@@ -241,7 +249,7 @@
 .blob.one {
   width: 700px;
   height: 400px;
-  background: #00b050;
+  background: rgba(0, 255, 153, 0.25);
   top: 10%;
   left: 20%;
 }
@@ -249,7 +257,7 @@
 .blob.two {
   width: 900px;
   height: 900px;
-  background: #c3ffe2;
+  background: rgba(0, 240, 255, 0.2);
   top: 40%;
   left: 55%;
 }
@@ -257,7 +265,7 @@
 .blob.three {
   width: 450px;
   height: 450px;
-  background: #b5cfff;
+  background: rgba(255, 204, 0, 0.2);
   top: 20%;
   left: 70%;
 }

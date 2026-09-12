@@ -1,7 +1,7 @@
 .feature-section {
   padding: 80px 24px;
-  background: #FFFFFF; /* Clean luxury white */
-  color: #1A1A1A; /* Deep black for text contrast */
+  background: var(--bg-surface, #111625);
+  color: var(--text-primary, #f0f6fc);
 }
 
 /* Header styles */
@@ -15,14 +15,14 @@
   font-size: 2.25rem;
   font-weight: 700;
   margin-bottom: 20px;
-  background: linear-gradient(90deg, #0ecb81, #0b9e65);
+  background: linear-gradient(90deg, var(--accent-emerald, #00ff99), var(--accent-cyan, #00f0ff));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .feature-header p {
   font-size: 1.05rem;
-  color: #4A4A4A;
+  color: var(--text-secondary, #94a3b8);
   line-height: 1.8;
 }
 
@@ -65,7 +65,7 @@
 .card {
   width: 460px;
   height: 520px;
-  background: linear-gradient(135deg, #f9f9f9, #eaeaea);
+  background: var(--bg-glass-card, #161c2e); border: 1px solid var(--border-glass, rgba(0,255,200,0.18));
   border-radius: 16px;
   padding: 24px;
   flex-shrink: 0;
@@ -134,7 +134,7 @@
 .card h3 {
   font-size: 1.5rem;
   font-weight: 700;
-  background: linear-gradient(90deg, #0ecb81, #0b9e65);
+  background: linear-gradient(90deg, var(--accent-emerald, #00ff99), var(--accent-cyan, #00f0ff));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   padding-top: 80px;
@@ -143,7 +143,7 @@
 /* Card description */
 .card p {
   font-size: 1rem;
-  color: #333333;
+  color: var(--text-primary, #f0f6fc);
   line-height: 1.6;
   margin-top: 5px;
 }

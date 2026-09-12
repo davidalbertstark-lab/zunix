@@ -1,5 +1,5 @@
  footer {
-     background: linear-gradient(to right, #000000, #01360d);
+     background: var(--bg-surface, #111625); border-top: 1px solid var(--border-subtle, rgba(255,255,255,0.08));
 
       width: 100%;
       margin-top: auto;
@@ -61,9 +61,9 @@
       gap: 10px;
       cursor: pointer;
       padding: 6px 10px;
-      border: 1px solid #2d0b00;
+      border: 1px solid var(--border-glass, rgba(0,255,200,0.25));
       border-radius: 5px;
-      background-color: #2d0b00;
+      background-color: var(--bg-glass-subtle, rgba(255,255,255,0.05));
       color: white;
     }
 
@@ -76,8 +76,8 @@
       bottom: 100%;
       right: 0;
       width: 160px;
-      background-color: #fff;
-      border: 1px solid #ddd;
+      background-color: var(--bg-surface, #111625);
+      border: 1px solid var(--border-glass, rgba(0,255,200,0.25));
       border-radius: 5px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       padding: 5px 0;
@@ -95,11 +95,11 @@
       gap: 10px;
       text-decoration: none;
       padding: 8px 12px;
-      color: #333;
+      color: var(--text-primary, #f0f6fc);
     }
 
     .lang-menu ul li a:hover {
-      background-color: #f5f5f5;
+      background-color: rgba(0,255,153,0.12);
     }
 
     .flag {

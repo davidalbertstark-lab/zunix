@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us — Zunix Team</title>
+  <link rel="icon" href="../src/img/favicon-32x32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="../src/img/favicon-16x16.png" type="image/png" sizes="16x16" />
+  <link rel="apple-touch-icon" href="../src/img/apple-touch-icon.png" sizes="180x180" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../src/styles/theme.css" />
+  <link rel="stylesheet" href="../src/styles/Header.css" />
+  <link rel="stylesheet" href="../src/styles/ContactUsPage.css" />
+  <style>
+    body { padding-top: 80px; }
+  </style>
+</head>
+<body class="body-bg">
+  <header class="header">
+    <div class="logo">
+      <a href="../index.html">
+        <img src="../src/img/favicon-32x32.png" alt="Zunix Logo" />
+        <span>Zunix</span>
+      </a>
+    </div>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+
+    <nav class="nav">
+      <ul>
+        <li><a href="features.html" data-i18n="nav_features">Features</a></li>
+        <li><a href="rewards.html" data-i18n="nav_rewards">Rewards</a></li>
+        <li><a href="programs.html" data-i18n="nav_programs">Programs</a></li>
+        <li><a href="events.html" data-i18n="nav_events">Events</a></li>
+        <li><a href="communities.html" data-i18n="nav_communities">Communities</a></li>
+      </ul>
+
+      <div class="header-actions">
+        <!-- Language Picker -->
+        <div class="header-lang-picker">
+          <details>
+            <summary>
+              <span class="lang-flag-icon current-lang-flag" style="background-image: url('https://flagcdn.com/w40/gb.png');"></span>
+              <span class="current-lang-label">EN</span>
+            </summary>
+            <div class="lang-menu-dropdown">
+              <a href="#" data-switch-lang="en"><span class="lang-flag-icon" style="background-image: url('https://flagcdn.com/w40/gb.png');"></span> English</a>
+              <a href="#" data-switch-lang="de"><span class="lang-flag-icon" style="background-image: url('https://flagcdn.com/w40/de.png');"></span> Deutsch</a>
+              <a href="#" data-switch-lang="fr"><span class="lang-flag-icon" style="background-image: url('https://flagcdn.com/w40/fr.png');"></span> Français</a>
+              <a href="#" data-switch-lang="ar"><span class="lang-flag-icon" style="background-image: url('https://flagcdn.com/w40/sa.png');"></span> العربية</a>
+            </div>
+          </details>
+        </div>
+
+        <!-- Theme Switcher -->
+        <button class="theme-toggle-btn" aria-label="Toggle Theme" title="Toggle Dark/Light Mode">
+          <span class="theme-icon">☀️</span>
+        </button>
+
+        <!-- CTA Buttons -->
+        <div class="cta-buttons">
+          <a href="login.html#loginBox" class="header-btn header-btn-login" data-i18n="nav_login">Log In</a>
+          <a href="login.html#signupBox" class="header-btn header-btn-signup" data-i18n="nav_signup">Sign Up</a>
+        </div>
+      </div>
+    </nav>
+
+    <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle navigation menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </label>
+  </header>
+
+
+  <section class="contact-page">
+    <div class="contact-container">
+      <div class="contact-box">
+        <div class="contact-info">
+          <h1>Contact Us</h1>
+          <p>Let’s connect. We’d love to hear from you and see how we can help.</p>
+
+          <div class="info-block">
+            <i class="fas fa-phone"></i>
+            <span>+234 800 000 0000</span>
+          </div>
+
+          <div class="info-block">
+            <i class="fas fa-envelope"></i>
+            <span>support@zunix.com</span>
+          </div>
+
+          <div class="info-block">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Lagos, Nigeria</span>
+          </div>
+
+          <div class="footer-social">
+            <a href="https://facebook.com" class="facebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com" class="instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://x.com" class="twitter" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+              <i class="fab fa-x-twitter"></i>
+            </a>
+            <a href="https://linkedin.com" class="linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+
+        <form class="contact-form">
+          <input type="text" placeholder="Full Name" required />
+          <input type="email" placeholder="Email Address" required />
+          <select class="opt" required>
+            <option value="" disabled selected hidden>-- Select Subject --</option>
+            <option value="general">General Inquiry</option>
+            <option value="feedback">Feedback/Suggestion</option>
+            <option value="partnership">Partnership/Collaboration</option>
+            <option value="media">Media/Press Request</option>
+            <option value="event">Event/Promotion Support</option>
+            <option value="tech">Tech Support</option>
+            <option value="org">University/Club Onboarding</option>
+          </select>
+          <textarea rows="5" placeholder="Your Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+
+        <div class="contact-direct">
+          You can contact us directly at <a href="mailto:zunixteamx@dmail.com" class="direct-link">our email address</a>.
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="footer" style="padding: 40px 24px; text-align: center; border-top: 1px solid var(--border-subtle); background: var(--bg-surface); margin-top: 60px;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px;">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <img src="../src/img/favicon-32x32.png" alt="Zunix Logo" style="width: 28px; height: 28px;" />
+        <span style="font-weight: 700; color: var(--accent-emerald);">Zunix</span>
+        <span style="color: var(--text-muted);">© 2025</span>
+      </div>
+
+      <div style="display: flex; gap: 20px; flex-wrap: wrap; font-size: 0.9rem;">
+        <a href="about.html" style="color: var(--text-secondary);">About</a>
+        <a href="faq.html" style="color: var(--text-secondary);">FAQ</a>
+        <a href="partners.html" style="color: var(--text-secondary);">Partners</a>
+        <a href="contact.html" style="color: var(--text-secondary);">Contact</a>
+        <a href="terms.html" style="color: var(--text-secondary);">Terms</a>
+        <a href="privacy.html" style="color: var(--text-secondary);">Privacy</a>
+        <a href="cookies.html" style="color: var(--text-secondary);">Cookies</a>
+        <a href="copyright.html" style="color: var(--text-secondary);">Copyright</a>
+      </div>
+
+      <div style="color: var(--text-muted); font-size: 0.85rem;" data-i18n="footer_rights">
+        All rights reserved
+      </div>
+    </div>
+  </footer>
+  <script type="module" src="../src/js/theme.js"></script>
+  <script type="module" src="../src/js/i18n.js"></script>
+
+</body>
+</html>

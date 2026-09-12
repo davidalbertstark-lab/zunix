@@ -16,7 +16,8 @@
     <meta property="og:description" content=" 2 members | Manage your professional identity. Build and engage with your professional network. Access knowledge, insights and opportunities.">
     <meta name="keywords" content="">
     <meta property="og:type" content="website">
-  <link rel="stylesheet" href="src/styles/index.css"/>
+  <link rel="stylesheet" href="src/styles/theme.css" />
+  <link rel="stylesheet" href="src/styles/index.css" />
   <link rel="stylesheet" href="src/styles/Header.css" />
   <link rel="stylesheet" href="src/styles/Hero.css" />
   <link rel="stylesheet" href="src/styles/FeatureSection.css" />
@@ -28,23 +29,52 @@
 </head>
 
 <header class="header">
-      <div class="logo">
-        <img src="src/img/favicon-32x32.png"  />Zunix
-      </div>
+    <div class="logo">
+      <a href="index.html">
+        <img src="src/img/favicon-32x32.png" alt="Zunix Logo" />
+        <span>Zunix</span>
+      </a>
+    </div>
 
     <input type="checkbox" id="nav-toggle" class="nav-toggle" />
 
     <nav class="nav">
       <ul>
-        <li><a href="Features.html">Features</a></li>
-        <li><a href="Rewards.html">Rewards</a></li>
-        <li><a href="Programs.html">Programs</a></li>
-        <li><a href="Events.html">Events</a></li>
-        <li><a href="Communities.html">Communities</a></li>
+        <li><a href="pages/features.html" data-i18n="nav_features">Features</a></li>
+        <li><a href="pages/rewards.html" data-i18n="nav_rewards">Rewards</a></li>
+        <li><a href="pages/programs.html" data-i18n="nav_programs">Programs</a></li>
+        <li><a href="pages/events.html" data-i18n="nav_events">Events</a></li>
+        <li><a href="pages/communities.html" data-i18n="nav_communities">Communities</a></li>
       </ul>
-     <a href="LoginPage.html#loginBox" class="btn login">Log In</a>
-<a href="LoginPage.html#signupBox" class="btn signup">Sign Up</a>
 
+      <div class="header-actions">
+        <!-- Language Picker -->
+        <div class="header-lang-picker">
+          <details>
+            <summary>
+              <span class="lang-flag-icon current-lang-flag" style="background-image: url('https://flagcdn.com/w40/gb.png');"></span>
+              <span class="current-lang-label">EN</span>
+            </summary>
+            <div class="lang-menu-dropdown">
+              <a href="#" data-switch-lang="en"><span class="lang-flag-icon" style="background-image: url('https://flagcdn.com/w40/gb.png');"></span> English</a>
+              <a href="#" data-switch-lang="de"><span class="lang-flag-icon" style="background-image: url('https://flagcdn.com/w40/de.png');"></span> Deutsch</a>
+              <a href="#" data-switch-lang="fr"><span class="lang-flag-icon" style="background-image: url('https://flagcdn.com/w40/fr.png');"></span> Français</a>
+              <a href="#" data-switch-lang="ar"><span class="lang-flag-icon" style="background-image: url('https://flagcdn.com/w40/sa.png');"></span> العربية</a>
+            </div>
+          </details>
+        </div>
+
+        <!-- Theme Switcher -->
+        <button class="theme-toggle-btn" aria-label="Toggle Theme" title="Toggle Dark/Light Mode">
+          <span class="theme-icon">☀️</span>
+        </button>
+
+        <!-- CTA Buttons -->
+        <div class="cta-buttons">
+          <a href="pages/login.html#loginBox" class="header-btn header-btn-login" data-i18n="nav_login">Log In</a>
+          <a href="pages/login.html#signupBox" class="header-btn header-btn-signup" data-i18n="nav_signup">Sign Up</a>
+        </div>
+      </div>
     </nav>
 
     <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle navigation menu">
@@ -64,10 +94,8 @@
   <div class="hero-content">
     <!-- Left Side -->
     <div class="left-side">
-      <h1 class="headline">Empower Your Student Journey with Zunix</h1>
-      <p class="subtext">
-        Access study tools, launch side hustles, earn real rewards, and level up your campus game, all from one do-it-all hub made for students who want more.
-      </p>
+      <h1 class="headline" data-i18n="hero_headline">Empower Your Student Journey with Zunix</h1>
+      <p class="subtext" data-i18n="hero_subtext">Access study tools, launch side hustles, earn real rewards, and level up your campus game, all from one do-it-all hub made for students who want more.</p>
     </div>
 
     <!-- Right Side -->
@@ -75,27 +103,29 @@
       <div class="center-image">
         <div class="avatar">
           <img src="src/img/learn.png" alt="Learn Avatar" />
-          <span class="label">Learn</span>
+          <span class="label" data-i18n="badge_learn">Learn</span>
         </div>
         <div class="avatar">
           <img src="src/img/earn.png" alt="Earn Avatar" />
-          <span class="label">Earn</span>
+          <span class="label" data-i18n="badge_earn">Earn</span>
         </div>
         <div class="avatar">
           <img src="src/img/grow.png" alt="Grow Avatar" />
-          <span class="label">Grow</span>
+          <span class="label" data-i18n="badge_grow">Grow</span>
         </div>
         <div class="avatar">
           <img src="src/img/connect.png" alt="Connect Avatar" />
-          <span class="label">Connect</span>
+          <span class="label" data-i18n="badge_connect">Connect</span>
         </div>
       </div>
     </div>
 
     <!-- CTA Buttons -->
-    <div class="cta-button">
-      <a href="LoginPage.html" class="btns primary-btn">Join Now</a>
-      <a href="#explore" class="btns secondary-btn">Explore</a>
+    <div class="cta-button" style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:24px;">
+      <a href="pages/login.html#signupBox" class="btns primary-btn" data-i18n="btn_join_now">Join Now</a>
+      <a href="pages/features.html" class="btns secondary-btn" data-i18n="btn_explore">Explore Hub</a>
+      <a href="pages/profile-card.html" class="btns" style="background:rgba(255,255,255,0.06);border:1px solid var(--border-glass);color:var(--accent-cyan);font-weight:700;">🪪 Student ID Card</a>
+      <a href="pages/rewards.html" class="btns" style="background:rgba(255,255,255,0.06);border:1px solid var(--border-glass);color:var(--accent-gold);font-weight:700;">⚡ XP Simulator</a>
     </div>
 
     <!-- Student Logos Section -->
@@ -405,7 +435,7 @@
       No spam. Just valuable resources for your journey.
     </p>
 
-    <a href="ContactUsPage.html" class="cta-btn" target="_blank" rel="noopener noreferrer">
+    <a href="pages/contact.html" class="cta-btn" target="_blank" rel="noopener noreferrer">
       Contact Us
     </a>
   </div>
@@ -413,7 +443,7 @@
   <div class="faq-cta">
     <p>
       Got questions?
-      <a href="Faq.html" target="_blank" rel="noopener noreferrer">
+      <a href="pages/faq.html" target="_blank" rel="noopener noreferrer">
         Visit our FAQ
       </a>
     </p>
@@ -443,17 +473,17 @@
 <footer>
   <div class="footer-container">
     <ul class="footer-links">
-      <li><a href="Partners.html" target="_blank">Partner</a></li>
+      <li><a href="pages/partners.html" target="_blank">Partner</a></li>
       <li class="divi">|</li>
-      <li><a href="PrivacyPolicy.html" target="_blank" >Privacy Policy</a></li>
+      <li><a href="pages/privacy.html" target="_blank" >Privacy Policy</a></li>
       <li class="divi">|</li>
-      <li><a href="CopyrightPolicy.html" target="_blank">Copyright Policy</a></li>
+      <li><a href="pages/copyright.html" target="_blank">Copyright Policy</a></li>
       <li class="divi">|</li>
-      <li><a href="Terms.html" target="_blank">Terms & Conditions</a></li>
+      <li><a href="pages/terms.html" target="_blank">Terms & Conditions</a></li>
       <li class="divi">|</li>
-      <li><a href="AboutUs.html" target="_blank">About Us</a></li>
+      <li><a href="pages/about.html" target="_blank">About Us</a></li>
       <li class="divi">|</li>
-      <li><a href="CookiePolicy.html" target="_blank">Cookie Policy</a></li>
+      <li><a href="pages/cookies.html" target="_blank">Cookie Policy</a></li>
     </ul>
 
 <div class="footer-bottom">
@@ -469,7 +499,7 @@
       </summary>
       <ul>
         <li>
-          <a href="#" class="de" data-key="lang-option-de">
+          <a href="#" class="de" data-switch-lang="de" data-key="lang-option-de">
             <span
               class="flag"
               style="background-image: url('https://flagcdn.com/w40/de.png');"
@@ -478,7 +508,7 @@
           </a>
         </li>
         <li>
-          <a href="#" class="en" data-key="lang-option-en">
+          <a href="#" class="en" data-switch-lang="en" data-key="lang-option-en">
             <span
               class="flag"
               style="background-image: url('https://flagcdn.com/w40/gb.png');"
@@ -487,7 +517,7 @@
           </a>
         </li>
         <li>
-          <a href="#" class="fr" data-key="lang-option-fr">
+          <a href="#" class="fr" data-switch-lang="fr" data-key="lang-option-fr">
             <span
               class="flag"
               style="background-image: url('https://flagcdn.com/w40/fr.png');"
@@ -496,7 +526,7 @@
           </a>
         </li>
         <li>
-          <a href="#" class="ar" data-key="lang-option-ar">
+          <a href="#" class="ar" data-switch-lang="ar" data-key="lang-option-ar">
             <span
               class="flag"
               style="background-image: url('https://flagcdn.com/w40/ae.png');"
@@ -519,6 +549,8 @@
 </div>
   </div>
 </footer>
+  <script type="module" src="src/js/theme.js"></script>
+  <script type="module" src="src/js/i18n.js"></script>
 </body>
 </html>
 

@@ -11,10 +11,12 @@
 
 ## 🌐 Live Production Deployments
 
-- **Live Campus Hub**: [https://davidalbertstark-lab.github.io/zunix-frontend/](https://davidalbertstark-lab.github.io/zunix-frontend/)
-- **Live 6-Step Onboarding & Review Card**: [https://davidalbertstark-lab.github.io/zunix-frontend/setup-student.html](https://davidalbertstark-lab.github.io/zunix-frontend/setup-student.html)
-- **Live 3D Neon ID Card Customizer**: [https://davidalbertstark-lab.github.io/zunix-frontend/profile-card.html](https://davidalbertstark-lab.github.io/zunix-frontend/profile-card.html)
-- **Live Gamified Rewards**: [https://davidalbertstark-lab.github.io/zunix-frontend/Rewards.html](https://davidalbertstark-lab.github.io/zunix-frontend/Rewards.html)
+- **Live Campus Hub**: [https://davidalbertstark-lab.github.io/zunix/](https://davidalbertstark-lab.github.io/zunix/)
+- **Interactive XP Rewards Simulator**: [https://davidalbertstark-lab.github.io/zunix/pages/rewards.html](https://davidalbertstark-lab.github.io/zunix/pages/rewards.html)
+- **3D Student ID Card & Canvas PNG Export**: [https://davidalbertstark-lab.github.io/zunix/pages/profile-card.html](https://davidalbertstark-lab.github.io/zunix/pages/profile-card.html)
+- **Programs Directory with Live Search**: [https://davidalbertstark-lab.github.io/zunix/pages/programs.html](https://davidalbertstark-lab.github.io/zunix/pages/programs.html)
+- **6-Step Onboarding & Review Card**: [https://davidalbertstark-lab.github.io/zunix/pages/setup-student.html](https://davidalbertstark-lab.github.io/zunix/pages/setup-student.html)
+- **Unified Student Authentication**: [https://davidalbertstark-lab.github.io/zunix/pages/login.html](https://davidalbertstark-lab.github.io/zunix/pages/login.html)
 
 ---
 

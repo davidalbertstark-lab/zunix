@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zunix Communities — Where Students Belong</title>
+  <link rel="icon" href="../src/img/favicon-32x32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="../src/img/favicon-16x16.png" type="image/png" sizes="16x16" />
+  <link rel="apple-touch-icon" href="../src/img/apple-touch-icon.png" sizes="180x180" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../src/styles/theme.css" />
+  <link rel="stylesheet" href="../src/styles/Header.css" />
+  <link rel="stylesheet" href="../src/styles/Communities.css" />
+  <style>
+    body { padding-top: 80px; }
+  </style>
+</head>
+<body class="body-bg">
+  <header class="header">
+    <div class="logo">
+      <a href="../index.html">
+        <img src="../src/img/favicon-32x32.png" alt="Zunix Logo" />
+        <span>Zunix</span>
+      </a>
+    </div>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+
+    <nav class="nav">
+      <ul>
+        <li><a href="features.html" data-i18n="nav_features">Features</a></li>
+        <li><a href="rewards.html" data-i18n="nav_rewards">Rewards</a></li>
+        <li><a href="programs.html" data-i18n="nav_programs">Programs</a></li>
+        <li><a href="events.html" data-i18n="nav_events">Events</a></li>
+        <li><a href="communities.html" style="color: var(--accent-emerald); font-weight: 700;" class="active" data-i18n="nav_communities">Communities</a></li>
+      </ul>
+
+      <div class="header-actions">
+        <!-- Language Picker -->
+        <div class="header-lang-picker">
+          <details>
+            <summary>
+              <span class="lang-flag-icon current-lang-flag" style="background-image: url('https://flagcdn.com/w40/gb.png');"></span>
+              <span class="current-lang-label">EN</span>
+            </summary>
+            <div class="lang-menu-dropdown">
+              <a href="#" data-switch-lang="en"><span class="lang-flag-icon" style="background-image: url('https://flagcdn.com/w40/gb.png');"></span> English</a>
+              <a href="#" data-switch-lang="de"><span class="lang-flag-icon" style="background-image: url('https://flagcdn.com/w40/de.png');"></span> Deutsch</a>
+              <a href="#" data-switch-lang="fr"><span class="lang-flag-icon" style="background-image: url('https://flagcdn.com/w40/fr.png');"></span> Français</a>
+              <a href="#" data-switch-lang="ar"><span class="lang-flag-icon" style="background-image: url('https://flagcdn.com/w40/sa.png');"></span> العربية</a>
+            </div>
+          </details>
+        </div>
+
+        <!-- Theme Switcher -->
+        <button class="theme-toggle-btn" aria-label="Toggle Theme" title="Toggle Dark/Light Mode">
+          <span class="theme-icon">☀️</span>
+        </button>
+
+        <!-- CTA Buttons -->
+        <div class="cta-buttons">
+          <a href="login.html#loginBox" class="header-btn header-btn-login" data-i18n="nav_login">Log In</a>
+          <a href="login.html#signupBox" class="header-btn header-btn-signup" data-i18n="nav_signup">Sign Up</a>
+        </div>
+      </div>
+    </nav>
+
+    <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle navigation menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </label>
+  </header>
+
+
+    <section class="community-hero">
+      <h1>Where Students Don’t Just Join, They Belong</h1>
+      <p>The Zunix Community is a family of rebels, builders, dreamers, and doers shaping Africa’s future together.</p>
+     <div class="hero-links">
+        <a href="#clubs">Join a Club</a>
+        <a href="#trending">See What’s Trending</a>
+        <a href="#events">Attend Events</a>
+        <a href="#leaders">Top Students</a>
+      </div>
+    </section>
+
+    <section class="community-grid">
+      <div class="community-card">
+        <i class="fas fa-fire icon"></i>
+        <h2>Built by Us, For Us</h2>
+        <p>From meme lords to innovators, the community is home to every student bold enough to stand out and link up.</p>
+      </div>
+
+      <div class="community-card" id="leaders">
+        <i class="fas fa-crown icon"></i>
+        <h2>Community Leaders</h2>
+        <p>Meet the top creators, club admins, challenge champs, and monthly MVPs on the Zunix Leaderboard.</p>
+        <a href="#" class="btn">View Leaderboard</a>
+      </div>
+
+      <div class="community-card" id="events">
+        <i class="fas fa-calendar-star icon"></i>
+        <h2>Monthly Madness</h2>
+        <p>Campus takeovers. Meme wars. Pitch shows. From hype to prizes, our monthly events are straight.</p>
+        <ul class="subcard-list">
+          <li><i class="fas fa-bolt"></i> Weekly challenges</li>
+          <li><i class="fas fa-coins"></i> Leaderboard rewards</li>
+          <li><i class="fas fa-location-dot"></i> Campus & online events</li>
+        </ul>
+        <a href="#" class="btn">See This Month’s Events</a>
+      </div>
+
+      <div class="community-card" id="clubs">
+        <i class="fas fa-users icon"></i>
+        <h2>Bring Your Club to Zunix</h2>
+        <p>Already leading a student group or squad? Zunix lets you create a digital base, build your rep, and attract the student crowd that vibes with your mission.</p>
+        <ul class="subcard-list">
+          <li><i class="fas fa-bullhorn"></i> Promote your events to a targeted student audience</li>
+          <li><i class="fas fa-heart"></i> Grow your fanbase and campus influence</li>
+          <li><i class="fas fa-gauge-high"></i> Get visibility across Zunix with real engagement</li>
+        </ul>
+        <p class="note">Select student orgs may get early access to special tools or support we’re still evolving. Plug in early.</p>
+        <a href="#" class="btn">Launch Your Club on Zunix</a>
+      </div>
+
+      <div class="community-card" id="trending">
+        <i class="fas fa-plug icon"></i>
+        <h2>Plug Into the Ecosystem</h2>
+        <p>Your entry into Africa’s tech-driven student society. Post content, join events, and grow your clout.</p>
+        <ul class="subcard-list">
+          <li><i class="fas fa-check"></i> Join or start a club</li>
+          <li><i class="fas fa-check"></i> Drop content and comments</li>
+          <li><i class="fas fa-check"></i> Enter Zunix Challenges</li>
+        </ul>
+        <a href="#" class="btn">Join Now</a>
+      </div>
+    </section>
+    <footer class="footer" style="padding: 40px 24px; text-align: center; border-top: 1px solid var(--border-subtle); background: var(--bg-surface); margin-top: 60px;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px;">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <img src="../src/img/favicon-32x32.png" alt="Zunix Logo" style="width: 28px; height: 28px;" />
+        <span style="font-weight: 700; color: var(--accent-emerald);">Zunix</span>
+        <span style="color: var(--text-muted);">© 2025</span>
+      </div>
+
+      <div style="display: flex; gap: 20px; flex-wrap: wrap; font-size: 0.9rem;">
+        <a href="about.html" style="color: var(--text-secondary);">About</a>
+        <a href="faq.html" style="color: var(--text-secondary);">FAQ</a>
+        <a href="partners.html" style="color: var(--text-secondary);">Partners</a>
+        <a href="contact.html" style="color: var(--text-secondary);">Contact</a>
+        <a href="terms.html" style="color: var(--text-secondary);">Terms</a>
+        <a href="privacy.html" style="color: var(--text-secondary);">Privacy</a>
+        <a href="cookies.html" style="color: var(--text-secondary);">Cookies</a>
+        <a href="copyright.html" style="color: var(--text-secondary);">Copyright</a>
+      </div>
+
+      <div style="color: var(--text-muted); font-size: 0.85rem;" data-i18n="footer_rights">
+        All rights reserved
+      </div>
+    </div>
+  </footer>
+  <script type="module" src="../src/js/theme.js"></script>
+  <script type="module" src="../src/js/i18n.js"></script>
+
+</body>
+</html>

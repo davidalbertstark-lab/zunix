@@ -1,0 +1,325 @@
+/* ==========================================================================
+   ZUNIX UNIFIED DESIGN SYSTEM TOKENS & THEME ENGINE
+   ========================================================================== */
+
+:root {
+  /* Default Dark Cyberpunk Palette */
+  --bg-base: #0a0d14;
+  --bg-surface: #111625;
+  --bg-surface-alt: #161c2e;
+  --bg-glass: rgba(17, 22, 37, 0.75);
+  --bg-glass-card: rgba(22, 28, 46, 0.7);
+  --bg-glass-subtle: rgba(255, 255, 255, 0.04);
+  
+  --text-primary: #f0f6fc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-inverse: #0a0d14;
+  
+  --accent-emerald: #00ff99;
+  --accent-emerald-dark: #00b050;
+  --accent-cyan: #00f0ff;
+  --accent-gold: #ffcc00;
+  --accent-magenta: #ff0077;
+  
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-glass: rgba(0, 255, 200, 0.2);
+  --border-active: rgba(0, 255, 153, 0.5);
+  
+  --glow-emerald: 0 0 25px rgba(0, 255, 153, 0.35);
+  --glow-cyan: 0 0 25px rgba(0, 240, 255, 0.35);
+  --glow-gold: 0 0 25px rgba(255, 204, 0, 0.35);
+  
+  --header-bg: rgba(10, 13, 20, 0.85);
+  --header-border: rgba(0, 255, 200, 0.15);
+  
+  --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+  --radius-pill: 9999px;
+  
+  --font-sans: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+/* Light Mode Overrides */
+[data-theme="light"] {
+  --bg-base: #f4f7f9;
+  --bg-surface: #ffffff;
+  --bg-surface-alt: #e9eff5;
+  --bg-glass: rgba(255, 255, 255, 0.88);
+  --bg-glass-card: rgba(255, 255, 255, 0.9);
+  --bg-glass-subtle: rgba(0, 0, 0, 0.03);
+  
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-inverse: #ffffff;
+  
+  --accent-emerald: #009a44;
+  --accent-emerald-dark: #007a36;
+  --accent-cyan: #0284c7;
+  --accent-gold: #d97706;
+  --accent-magenta: #db2777;
+  
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --border-glass: rgba(0, 154, 68, 0.25);
+  --border-active: rgba(0, 154, 68, 0.6);
+  
+  --glow-emerald: 0 4px 18px rgba(0, 154, 68, 0.2);
+  --glow-cyan: 0 4px 18px rgba(2, 132, 199, 0.2);
+  --glow-gold: 0 4px 18px rgba(217, 119, 6, 0.2);
+  
+  --header-bg: rgba(255, 255, 255, 0.92);
+  --header-border: rgba(0, 154, 68, 0.2);
+  
+  --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+/* Base resets & typography */
+html {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+/* Glassmorphic Container Class */
+.zunix-glass {
+  background: var(--bg-glass-card);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--card-shadow);
+  transition: var(--transition-smooth);
+}
+
+.zunix-glass:hover {
+  border-color: var(--border-active);
+  box-shadow: var(--glow-emerald);
+}
+
+/* Button System */
+.zbtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 22px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  border: none;
+  transition: var(--transition-smooth);
+  font-family: var(--font-sans);
+  text-decoration: none;
+}
+
+.zbtn-primary {
+  background: linear-gradient(135deg, var(--accent-emerald), var(--accent-cyan));
+  color: #000;
+  box-shadow: var(--glow-emerald);
+}
+
+.zbtn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 35px rgba(0, 255, 153, 0.6);
+}
+
+.zbtn-secondary {
+  background: var(--bg-glass-subtle);
+  color: var(--text-primary);
+  border: 1px solid var(--border-glass);
+}
+
+.zbtn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--accent-emerald);
+  transform: translateY(-2px);
+}
+
+/* Toast Notifications */
+.zunix-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--accent-emerald);
+  padding: 12px 20px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), var(--glow-emerald);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  animation: toastSlideUp 0.3s ease;
+  backdrop-filter: blur(12px);
+}
+
+@keyframes toastSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   GLOBAL COMPONENT THEMING (ELIMINATES LIGHT/DARK INCONSISTENCIES)
+   ========================================================================== */
+
+/* Hero Theming */
+.hero {
+  background: radial-gradient(circle at 50% 25%, rgba(0, 255, 153, 0.08) 0%, var(--bg-base) 75%) !important;
+  color: var(--text-primary) !important;
+}
+
+[data-theme="light"] .hero {
+  background: radial-gradient(circle at 50% 25%, rgba(0, 154, 68, 0.12) 0%, #f4f7f9 75%) !important;
+}
+
+.hero .headline {
+  background: linear-gradient(135deg, var(--accent-emerald), var(--accent-cyan));
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.hero .subtext {
+  color: var(--text-secondary) !important;
+}
+
+/* Feature Section Theming */
+.feature-section {
+  background: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+}
+
+.feature-header h2 {
+  background: linear-gradient(90deg, var(--accent-emerald), var(--accent-cyan)) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.feature-header p {
+  color: var(--text-secondary) !important;
+}
+
+.feature-card {
+  background: var(--bg-glass-card) !important;
+  border: 1px solid var(--border-glass) !important;
+  box-shadow: var(--card-shadow) !important;
+  color: var(--text-primary) !important;
+}
+
+.feature-card h3, .feature-card h4 {
+  color: var(--text-primary) !important;
+}
+
+.feature-card p {
+  color: var(--text-secondary) !important;
+}
+
+/* How It Works Theming */
+.How-it-works {
+  background: var(--bg-base) !important;
+  color: var(--text-primary) !important;
+}
+
+.how-it-works-title {
+  background: var(--bg-surface) !important;
+  color: var(--accent-emerald) !important;
+  border-bottom: 1px solid var(--border-glass) !important;
+  box-shadow: var(--card-shadow) !important;
+}
+
+.flow-card {
+  background: var(--bg-glass-card) !important;
+  border: 1px solid var(--border-glass) !important;
+  color: var(--text-primary) !important;
+}
+
+.flow-card h3 {
+  color: var(--accent-emerald) !important;
+}
+
+.flow-card p {
+  color: var(--text-secondary) !important;
+}
+
+/* Showcase & Prefooter Theming */
+.showcase-section {
+  background: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+}
+
+.prefooter {
+  background: var(--bg-base) !important;
+  color: var(--text-primary) !important;
+}
+
+footer {
+  background: var(--bg-surface) !important;
+  color: var(--text-secondary) !important;
+  border-top: 1px solid var(--border-subtle) !important;
+}
+
+/* Subpage Containers & Glass Cards */
+.body-bg {
+  background-color: var(--bg-base) !important;
+  color: var(--text-primary) !important;
+}
+
+.sidebar, .main-content, .score-box {
+  background: var(--bg-glass-card) !important;
+  border: 1px solid var(--border-glass) !important;
+  color: var(--text-primary) !important;
+}
+
+.engage-card, .reward-card, .program-card, .event-card, .category-card, 
+.faq-box, .faq-item, .partner-card, .about-section, .contact-section, .community-card {
+  background: var(--bg-glass-card) !important;
+  border: 1px solid var(--border-glass) !important;
+  color: var(--text-primary) !important;
+}
+
+.engage-card p, .reward-card p, .program-card p, .event-card p, 
+.faq-item p, .partner-card p, .community-card p, .about-section p {
+  color: var(--text-secondary) !important;
+}
+
+/* Access Page & Login Box */
+.access-body {
+  background: var(--bg-base) !important;
+}
+
+.access-container {
+  background: var(--bg-glass-card) !important;
+  border: 1px solid var(--border-glass) !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), var(--glow-emerald) !important;
+  backdrop-filter: blur(16px);
+}
+

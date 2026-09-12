@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="../src/styles/theme.css" />
+  <link rel="stylesheet" href="../src/styles/Header.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Zunix Access</title>
+  <link rel="stylesheet" href="../src/styles/AccessPage.css" />
+</head>
+<body class="access-body" style="padding-top:70px;">
+  <div style="position:fixed;top:0;left:0;right:0;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;background:var(--header-bg);border-bottom:1px solid var(--header-border);backdrop-filter:blur(14px);z-index:1000;">
+    <a href="../index.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;color:var(--accent-emerald);">
+      <img src="../src/img/favicon-32x32.png" alt="Zunix Logo" style="width:28px;height:28px;" />
+      <span>Zunix</span>
+    </a>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <a href="../index.html" style="color:var(--text-secondary);font-size:0.88rem;font-weight:600;text-decoration:none;">← Return Home</a>
+      <button class="theme-toggle-btn" aria-label="Toggle Theme" title="Toggle Dark/Light Mode" style="width:32px;height:32px;font-size:0.9rem;">
+        <span class="theme-icon">☀️</span>
+      </button>
+    </div>
+  </div>
+
+
+  <main class="access-container" id="accessContainer">
+    
+    <!-- Sign Up Section -->
+    <section class="form-box active" id="signupBox" aria-labelledby="signup-heading">
+      <div class="icon">
+        <img src="../src/img/android-chrome-512x512.png" alt="Zunix Logo" />
+      </div>
+      <h2 id="signup-heading">Create Your Account</h2>
+      <div id="signUpMessage" class="messageDiv" style="display:none;"></div>
+      <form id="signupForm" action="#" method="POST" onsubmit="return validateForm(event)">
+        <input type="text" name="fullName" placeholder="Full Name" required />
+        <input type="email" name="email" placeholder="Email Address" required />
+        <input type="password" name="password" placeholder="Password" required />
+        <input type="password" name="confirmPassword" placeholder="Confirm Password" required />
+        <p id="error-msg" class="error-msg" style="display:none; color:red;"></p>
+        <button type="submit" class="access-button">Sign Up</button>
+      </form>
+      <div class="demacate">or</div>
+      <button class="google-btn" type="button" onclick="googleSignUp()">
+        <img src="../src/img/google.png" alt="Google Icon" />
+        Sign Up with Google
+      </button>
+      <p class="login-footer">Already have an account? <a href="#" onclick="showLogin()">Sign In</a></p>
+    </section>
+
+    <!-- Login Section -->
+    <section class="form-box" id="loginBox" aria-labelledby="login-heading">
+      <div class="icon">
+        <img src="../src/img/android-chrome-512x512.png" alt="Zunix Logo" />
+      </div>
+      <h2 id="login-heading">Welcome Back</h2>
+      <div id="signInMessage" class="messageDiv" style="display:none;"></div>
+      <form class="login-form" action="#" method="POST" onsubmit="return handleLogin(event)">
+        <input type="email" name="email" placeholder="you@example.com" required />
+        <input type="password" name="password" placeholder="Enter your password" required />
+        <div class="remember">
+          <input type="checkbox" id="remember" />
+          <label for="remember">Remember me</label>
+        </div>
+        <button type="submit" class="access-button">Log In</button>
+      </form>
+      <div class="forgot-password"><a href="#">Forgot password?</a></div>
+      <div class="demacate">or</div>
+      <button class="google-btn" type="button" onclick="googleSignIn()">
+        <img src="../src/img/google.png" alt="Google Icon" />
+        Sign in with Google
+      </button>
+      <p class="signin-link">Don’t have an account? <a href="#" onclick="showSignup()">Sign Up</a></p>
+    </section>
+
+  </main>
+
+  <!-- Scripts -->
+  <script>
+    function showMessage(message, divId) {
+      const div = document.getElementById(divId);
+      if (!div) return;
+      div.style.display = "block";
+      div.innerHTML = message;
+      div.style.opacity = 1;
+      setTimeout(() => {
+        div.style.opacity = 0;
+      }, 5000);
+    }
+
+    function isPasswordStrong(password) {
+      const passwordRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*()_+{}:;<>,.?/~`-])/;
+      return password.length >= 6 && passwordRegex.test(password);
+    }
+
+    function getInputValue(id) {
+      return document.getElementById(id)?.value.trim();
+    }
+
+    function showLogin() {
+      document.getElementById("signupBox").classList.remove("active");
+      document.getElementById("loginBox").classList.add("active");
+    }
+
+    function showSignup() {
+      document.getElementById("loginBox").classList.remove("active");
+      document.getElementById("signupBox").classList.add("active");
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+  const hash = window.location.hash;
+
+  if (hash === '#loginBox') {
+    showLogin();
+  } else if (hash === '#signupBox') {
+    showSignup();
+  }
+});
+
+  </script>
+  <script type="module" src="../src/js/auth.js"></script>
+  <script type="module" src="../src/js/theme.js"></script>
+  <script type="module" src="../src/js/i18n.js"></script>
+</body>
+</html>

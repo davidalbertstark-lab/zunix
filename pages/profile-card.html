@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zunix Student ID Card - Live Preview & Customizer</title>
+  <link rel="icon" href="../src/img/favicon-32x32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="../src/img/favicon-16x16.png" type="image/png" sizes="16x16" />
+  <link rel="apple-touch-icon" href="../src/img/apple-touch-icon.png" sizes="180x180" />
+  <link rel="stylesheet" href="../src/styles/step6.css" />
+  <link rel="stylesheet" href="../src/styles/Header.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      padding-top: 100px;
+      flex-direction: column;
+      gap: 2rem;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+
+    .customizer-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      align-items: flex-start;
+      max-width: 1050px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .editor-panel {
+      background: rgba(18, 20, 29, 0.85);
+      border: 1px solid rgba(0, 255, 200, 0.25);
+      border-radius: 20px;
+      padding: 1.8rem;
+      width: 100%;
+      max-width: 440px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .editor-panel h2 {
+      color: #00ffcc;
+      font-size: 1.3rem;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      color: #aaffee;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 10px 14px;
+      background: #111422;
+      border: 1px solid rgba(0, 255, 200, 0.3);
+      border-radius: 10px;
+      color: #fff;
+      font-size: 0.9rem;
+      outline: none;
+      transition: all 0.2s ease;
+      box-sizing: border-box;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: #00ff99;
+      box-shadow: 0 0 10px rgba(0, 255, 153, 0.3);
+    }
+
+    .gender-picker {
+      display: flex;
+      gap: 10px;
+      margin-top: 5px;
+    }
+
+    .gender-btn {
+      flex: 1;
+      padding: 8px;
+      border-radius: 8px;
+      border: 1px solid rgba(0, 255, 200, 0.3);
+      background: #151828;
+      color: #ccc;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .gender-btn.active {
+      background: linear-gradient(135deg, #00ffcc, #00ff99);
+      color: #000;
+      border-color: #00ffcc;
+      font-weight: 800;
+      box-shadow: 0 0 12px rgba(0, 255, 200, 0.4);
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 1.5rem;
+    }
+
+    .action-btn {
+      flex: 1;
+      padding: 10px 14px;
+      border-radius: 30px;
+      border: none;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.2s ease;
+    }
+
+    .action-btn.share {
+      background: #00ff99;
+      color: #000;
+    }
+
+    .action-btn.onboard {
+      background: linear-gradient(90deg, #ff6600, #ff0066);
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .action-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0, 255, 200, 0.3);
+    }
+
+    @media (max-width: 900px) {
+      .customizer-wrapper {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Header Navigation -->
+    <header class="header">
+    <div class="logo">
+      <a href="../index.html">
+        <img src="../src/img/favicon-32x32.png" alt="Zunix Logo" />
+        <span>Zunix</span>
+      </a>
+    </div>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+
+    <nav class="nav">
+      <ul>
+        <li><a href="features.html" data-i18n="nav_features">Features</a></li>
+        <li><a href="rewards.html" data-i18n="nav_rewards">Rewards</a></li>
+        <li><a href="programs.html" data-i18n="nav_programs">Programs</a></li>
+        <li><a href="events.html" data-i18n="nav_events">Events</a></li>
+        <li><a href="communities.html" data-i18n="nav_communities">Communities</a></li>
+      </ul>
+
+      <div class="header-actions">
+        <!-- Language Picker -->
+        <div class="header-lang-picker">
+          <details>
+            <summary>
+              <span class="lang-flag-icon current-lang-flag" style="background-image: url('https://flagcdn.com/w40/gb.png');"></span>
+              <span class="current-lang-label">EN</span>
+            </summary>
+            <div class="lang-menu-dropdown">
+              <a href="#" data-switch-lang="en"><span class="lang-flag-icon" style="background-image: url('https://flagcdn.com/w40/gb.png');"></span> English</a>
+              <a href="#" data-switch-lang="de"><span class="lang-flag-icon" style="background-image: url('https://flagcdn.com/w40/de.png');"></span> Deutsch</a>
+              <a href="#" data-switch-lang="fr"><span class="lang-flag-icon" style="background-image: url('https://flagcdn.com/w40/fr.png');"></span> Français</a>
+              <a href="#" data-switch-lang="ar"><span class="lang-flag-icon" style="background-image: url('https://flagcdn.com/w40/sa.png');"></span> العربية</a>
+            </div>
+          </details>
+        </div>
+
+        <!-- Theme Switcher -->
+        <button class="theme-toggle-btn" aria-label="Toggle Theme" title="Toggle Dark/Light Mode">
+          <span class="theme-icon">☀️</span>
+        </button>
+
+        <!-- CTA Buttons -->
+        <div class="cta-buttons">
+          <a href="login.html#loginBox" class="header-btn header-btn-login" data-i18n="nav_login">Log In</a>
+          <a href="login.html#signupBox" class="header-btn header-btn-signup" data-i18n="nav_signup">Sign Up</a>
+        </div>
+      </div>
+    </nav>
+
+    <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle navigation menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </label>
+  </header>
+
+
+  <div class="customizer-wrapper">
+    <!-- Live Card Preview -->
+    <div class="neon-card" id="previewCard">
+      <div class="card-badge">Verified Student ID</div>
+      <div class="student-id-tag" id="cardIdTag">ID: ZUN-2025-0042</div>
+      <h1>ZUNIX <span>IDENTITY</span></h1>
+      <p class="sub">Official Digital Campus Credential</p>
+
+      <div class="avatar">
+        <img id="cardAvatar" src="../src/img/boyss.png" alt="Student Avatar" />
+      </div>
+
+      <div class="info">
+        <p class="info-row"><span class="label">Full Name:</span> <span class="value" id="cardName">David Albert Stark</span></p>
+        <p class="info-row"><span class="label">Username:</span> <span class="value" id="cardUsername">@david_stark</span></p>
+        <p class="info-row"><span class="label">Email:</span> <span class="value" id="cardEmail">stark@zunix.africa</span></p>
+        <p class="info-row"><span class="label">Campus:</span> <span class="value" id="cardCampus">Akoka, Lagos</span></p>
+        <p class="info-row"><span class="label">Institution:</span> <span class="value" id="cardInstitution">University of Lagos</span></p>
+        <p class="info-row"><span class="label">Course:</span> <span class="value" id="cardCourse">Computer Engineering</span></p>
+        <p class="info-row"><span class="label">Level:</span> <span class="value" id="cardLevel">300 Level</span></p>
+        <p class="info-row"><span class="label">Graduation Year:</span> <span class="value" id="cardGradYear">2027</span></p>
+      </div>
+
+      <div class="button-row">
+        <a href="setup-student.html" class="btn btn-back" style="text-decoration:none;">Edit Profile</a>
+        <button type="button" class="btn btn-submit" id="printBtn" onclick="window.print()">Print Card</button>
+      </div>
+    </div>
+
+    <!-- Live Customizer Controls -->
+    <div class="editor-panel">
+      <h2>🎛️ Live ID Customizer</h2>
+      <p style="color:#8899aa;font-size:0.85rem;margin-bottom:1rem;">
+        Customize details below to preview how your digital student badge dynamically adapts.
+      </p>
+
+      <div class="form-group">
+        <label>Avatar Character</label>
+        <div class="gender-picker">
+          <button type="button" class="gender-btn active" id="avatarMaleBtn" onclick="setAvatar('male')">👨 Male Avatar</button>
+          <button type="button" class="gender-btn" id="avatarFemaleBtn" onclick="setAvatar('female')">👩 Female Avatar</button>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="inputName">Full Name</label>
+        <input type="text" id="inputName" value="David Albert Stark" oninput="updateCard()" />
+      </div>
+
+      <div class="form-group">
+        <label for="inputUsername">Username</label>
+        <input type="text" id="inputUsername" value="david_stark" oninput="updateCard()" />
+      </div>
+
+      <div class="form-group">
+        <label for="inputInstitution">Institution</label>
+        <input type="text" id="inputInstitution" value="University of Lagos" oninput="updateCard()" />
+      </div>
+
+      <div class="form-group">
+        <label for="inputCourse">Course of Study</label>
+        <input type="text" id="inputCourse" value="Computer Engineering" oninput="updateCard()" />
+      </div>
+
+      <div class="form-group">
+        <label for="inputLevel">Level</label>
+        <select id="inputLevel" onchange="updateCard()">
+          <option value="100 Level">100 Level</option>
+          <option value="200 Level">200 Level</option>
+          <option value="300 Level" selected>300 Level</option>
+          <option value="400 Level">400 Level</option>
+          <option value="500 Level">500 Level</option>
+        </select>
+      </div>
+
+      <div class="card-actions" style="display:flex;flex-direction:column;gap:10px;margin-top:1.5rem;">
+        <button type="button" class="action-btn share" id="downloadCardBtn" style="background: linear-gradient(135deg, #00ff99, #00f0ff); color: #000; font-weight: 800;">
+          📥 Download ID Badge (PNG)
+        </button>
+        <div style="display:flex;gap:10px;">
+          <button type="button" class="action-btn" onclick="copyCardInfo()" style="flex:1;background:var(--bg-glass-subtle);color:var(--text-primary);border:1px solid var(--border-glass);">📋 Copy Data</button>
+          <a href="setup-student.html" class="action-btn onboard" style="flex:1;text-decoration:none;">🚀 Setup Account</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentGender = 'male';
+
+    function setAvatar(gender) {
+      currentGender = gender;
+      const avatarImg = document.getElementById('cardAvatar');
+      const maleBtn = document.getElementById('avatarMaleBtn');
+      const femaleBtn = document.getElementById('avatarFemaleBtn');
+
+      if (gender === 'female') {
+        avatarImg.src = 'src/img/girls.png';
+        avatarImg.alt = 'Female Student Avatar';
+        femaleBtn.classList.add('active');
+        maleBtn.classList.remove('active');
+      } else {
+        avatarImg.src = 'src/img/boyss.png';
+        avatarImg.alt = 'Male Student Avatar';
+        maleBtn.classList.add('active');
+        femaleBtn.classList.remove('active');
+      }
+    }
+
+    function updateCard() {
+      const name = document.getElementById('inputName').value.trim() || 'Student Name';
+      const username = document.getElementById('inputUsername').value.trim() || 'student';
+      const inst = document.getElementById('inputInstitution').value.trim() || 'Institution';
+      const course = document.getElementById('inputCourse').value.trim() || 'Course';
+      const level = document.getElementById('inputLevel').value;
+
+      document.getElementById('cardName').textContent = name;
+      document.getElementById('cardUsername').textContent = '@' + username;
+      document.getElementById('cardInstitution').textContent = inst;
+      document.getElementById('cardCourse').textContent = course;
+      document.getElementById('cardLevel').textContent = level;
+
+      const seed = username.toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 4) || 'ZUNX';
+      document.getElementById('cardIdTag').textContent = `ID: ZUN-${new Date().getFullYear()}-${seed}`;
+    }
+
+    function copyCardInfo() {
+      const name = document.getElementById('cardName').textContent;
+      const id = document.getElementById('cardIdTag').textContent;
+      const inst = document.getElementById('cardInstitution').textContent;
+      const text = `${name} | ${id} | ${inst} (Verified on Zunix)`;
+      navigator.clipboard?.writeText(text).then(() => {
+        alert('Card info copied to clipboard: ' + text);
+      }).catch(() => {
+        alert(text);
+      });
+    }
+
+    // Load any saved profile from student setup
+    window.addEventListener('DOMContentLoaded', () => {
+      try {
+        const saved = JSON.parse(localStorage.getItem('zunix_student_profile') || '{}');
+        if (saved.fullName) document.getElementById('inputName').value = saved.fullName;
+        if (saved.username) document.getElementById('inputUsername').value = saved.username;
+        if (saved.institution) document.getElementById('inputInstitution').value = saved.institution;
+        if (saved.course) document.getElementById('inputCourse').value = saved.course;
+        if (saved.gender) setAvatar(saved.gender);
+        updateCard();
+      } catch (e) {}
+    });
+  </script>
+  <script type="module" src="../src/js/theme.js"></script>
+  <script type="module" src="../src/js/i18n.js"></script>
+  <script type="module" src="../src/js/card-generator.js"></script>
+</body>
+</html>

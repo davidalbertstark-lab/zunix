@@ -9,6 +9,15 @@
 
 ---
 
+## 🌐 Live Production Deployments
+
+- **Live Campus Hub**: [https://davidalbertstark-lab.github.io/zunix-frontend/](https://davidalbertstark-lab.github.io/zunix-frontend/)
+- **Live 6-Step Onboarding & Review Card**: [https://davidalbertstark-lab.github.io/zunix-frontend/setup-student.html](https://davidalbertstark-lab.github.io/zunix-frontend/setup-student.html)
+- **Live 3D Neon ID Card Customizer**: [https://davidalbertstark-lab.github.io/zunix-frontend/profile-card.html](https://davidalbertstark-lab.github.io/zunix-frontend/profile-card.html)
+- **Live Gamified Rewards**: [https://davidalbertstark-lab.github.io/zunix-frontend/Rewards.html](https://davidalbertstark-lab.github.io/zunix-frontend/Rewards.html)
+
+---
+
 ## 🚀 Key Modules & Experience
 
 | View | Access Path | Description |

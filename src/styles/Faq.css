@@ -5,8 +5,8 @@
 /* Base Layout */
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: #fefefe;
-  color: #111;
+  background-color: var(--bg-base, #0a0d14);
+  color: var(--text-primary, #f0f6fc);
   line-height: 1.8;
   margin: 0;
   scroll-behavior: smooth;
@@ -24,25 +24,25 @@ main {
   justify-content: center;
   align-items: center;
    padding: 40px 20px;
-  background: #eef1f5;
+  background: var(--bg-base, #0a0d14);
 }
 
 /* FAQ Section Container */
 .faq-section {
-  background-color: #f7f7f7;
+  background-color: var(--bg-surface-alt, #161c2e);
   padding: 60px 20px;
   max-width: 850px;
   width: 100%;
   margin: auto;
   border-radius: 8px;
-  color: #333;
+  color: var(--text-secondary, #94a3b8);
 }
 
 /* Heading */
 .faq-section h2 {
   text-align: center;
   font-size: 2rem;
-  color: #00b050;
+  color: var(--accent-emerald, #00ff99);
   margin-bottom: 2rem;
 }
 
@@ -51,8 +51,9 @@ main {
   margin-bottom: 1rem;
   border-bottom: 1px solid #ddd;
   padding-bottom: 10px;
-  background-color: #fff;
-  border-radius: 5px;
+  background-color: var(--bg-glass-card, #161c2e);
+  border: 1px solid var(--border-glass, rgba(0, 255, 200, 0.18));
+  border-radius: 10px;
 }
 
 /* Question Summary */
@@ -61,20 +62,20 @@ main {
   font-weight: 600;
   cursor: pointer;
   padding: 0.75rem 1rem;
-  background-color: #f4f4f4;
-  border: 1px solid #ddd;
+  background-color: var(--bg-surface-alt, #161c2e);
+  border: 1px solid var(--border-glass, rgba(0, 255, 200, 0.18));
   border-radius: 5px;
   transition: background-color 0.3s, color 0.3s;
-  color: #00b050;
+  color: var(--accent-emerald, #00ff99);
   position: relative;
 }
 
 /* Hover & Open States */
 .faq-section summary:hover {
-  background-color: #eaeaea;
+  background-color: var(--bg-surface-alt, #161c2e);
 }
 .faq-section details[open] summary {
-  background-color: #e3f9ec;
+  background-color: rgba(0, 255, 153, 0.1);
   font-weight: 700;
 }
 
@@ -82,12 +83,12 @@ main {
 .faq-answer {
   padding: 1rem 1.5rem;
   font-size: 1rem;
-  color: #000;
+  color: var(--text-secondary, #94a3b8);
   line-height: 1.6;
-  background-color: #fff;
-  border-left: 3px solid #00b050;
-  border-right: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
+  background-color: var(--bg-surface, #111625);
+  border-left: 3px solid var(--accent-emerald, #00ff99);
+  border-right: 1px solid var(--border-glass, rgba(0, 255, 200, 0.18));
+  border-bottom: 1px solid var(--border-glass, rgba(0, 255, 200, 0.18));
   border-radius: 0 0 5px 5px;
   margin-top: -1px;
   text-align: left;
@@ -95,7 +96,8 @@ main {
 
 /* Footer - Full width and always bottom */
 .footer {
-  background-color: #01360d;
+  background-color: var(--bg-surface, #111625);
+  border-top: 1px solid var(--border-glass, rgba(0, 255, 200, 0.15));
   color: #ffffff;
   text-align: center;
   padding: 20px;

@@ -1,15 +1,15 @@
 :root {
-  --primary-green: #01360d;
-  --accent-green: #00b050;
-  --light-green: #c3ffe2;
-  --light-blue: #d4e3ff;
-  --yellow: #ffca28;
-  --yellow-dark: #fbc02d;
-  --note-bg: #fff9c4;
-  --note-border: #fbc02d;
-  --note-text: #795548;
-  --neutral-text: #333;
-  --progress-bg: #e0f2f1;
+  --primary-green: var(--bg-surface, #111625);
+  --accent-green: var(--accent-emerald, #00ff99);
+  --light-green: var(--bg-surface-alt, #161c2e);
+  --light-blue: rgba(0, 240, 255, 0.15);
+  --yellow: var(--accent-gold, #ffcc00);
+  --yellow-dark: #e6b800;
+  --note-bg: var(--bg-surface-alt, #161c2e);
+  --note-border: var(--border-glass, rgba(0, 255, 200, 0.25));
+  --note-text: var(--text-primary, #f0f6fc);
+  --neutral-text: var(--text-primary, #f0f6fc);
+  --progress-bg: rgba(255, 255, 255, 0.08);
 
   --font-main: 'Segoe UI', sans-serif;
 }
@@ -17,7 +17,7 @@
 body.body-bg {
   margin: 0;
   font-family: var(--font-main);
-  background: linear-gradient(to bottom right, var(--light-green), var(--light-blue));
+  background: var(--bg-base, #0a0d14);
   color: var(--neutral-text);
   min-height: 100vh;
 }
@@ -30,7 +30,7 @@ body.body-bg {
 
 /* Sidebar - Fully Fluid */
 .sidebar {
-  background-color: var(--primary-green);
+  background-color: var(--bg-surface, #111625); border-right: 1px solid var(--border-glass, rgba(0,255,200,0.15));
   color: white;
   padding: 2rem;
   width: 100%;
@@ -93,6 +93,7 @@ body.body-bg {
   width: 100%;
   background: var(--yellow);
   color: #000;
+  background: linear-gradient(135deg, var(--accent-emerald, #00ff99), var(--accent-cyan, #00f0ff));
   padding: 1rem 1.25rem;
   border: none;
   border-radius: 1rem;
@@ -282,12 +283,12 @@ h4 {
 /* Icons */
 .icon {
   font-size: 1.25rem;
-  color: #01360d;
+  color: var(--text-primary, #f0f6fc);
 }
 .icon-small {
   font-size: 1rem;
   margin-right: 0.25rem;
-  color: #555;
+  color: var(--text-secondary, #94a3b8);
 }
 .icon-green {
   color: #22c55e;
@@ -355,7 +356,7 @@ section {
 }
 .reading-sharing {
   background-color: #0288d1;
-  color: #333;
+  color: var(--text-secondary, #94a3b8);
 }
 .booster h3 {
   font-size: 1.125rem;
@@ -498,7 +499,7 @@ section {
 /* CTA Section */
 .cta-section {
   margin-top: 3rem;
-  background-color: #01360d;
+  background-color: var(--text-primary, #f0f6fc);
   color: white;
   padding: 1.5rem 1.5rem;
   border-radius: 1rem;
@@ -544,7 +545,7 @@ h2, h3, h4 {
 }
 .icon {
   margin-right: 0.5rem;
-  color: #00b050;
+  color: var(--accent-emerald, #00ff99);
 }
 .icon-small {
   margin-right: 0.3rem;
@@ -553,7 +554,8 @@ h2, h3, h4 {
 
 /* Leaderboard */
 .leaderboard-container {
-  background: #fff;
+  background: var(--bg-surface, #111625);
+  border: 1px solid var(--border-glass, rgba(0,255,200,0.18));
   padding: 1.5rem;
   border-radius: 10px;
 }
@@ -568,18 +570,19 @@ h2, h3, h4 {
 }
 .leaderboard-table th,
 .leaderboard-table td {
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-subtle, rgba(255,255,255,0.08));
   padding: 0.75rem;
   text-align: center;
 }
 .leaderboard-table th {
-  background-color: #00b050;
-  color: white;
+  background-color: var(--bg-surface-alt, #161c2e);
+  color: var(--accent-emerald, #00ff99);
 }
 
 /* FAQs */
 .faqs-section {
-  background: #ffffff;
+  background: transparent;
+  color: var(--text-primary, #f0f6fc);
 }
 .faqs-list {
   margin-top: 1rem;
@@ -589,15 +592,15 @@ h2, h3, h4 {
 }
 .faq-question {
   font-weight: 600;
-  color: #01360d;
+  color: var(--text-primary, #f0f6fc);
 }
 .faq-answer {
   margin-top: 0.5rem;
-  color: #555;
+  color: var(--text-secondary, #94a3b8);
 }
 
 /* Utility Colors */
-.icon-green { color: #00b050; }
+.icon-green { color: var(--accent-emerald, #00ff99); }
 .icon-blue { color: #007bff; }
 .icon-yellow { color: #ffc107; }
 .icon-purple { color: #6f42c1; }
@@ -607,7 +610,7 @@ h2, h3, h4 {
 .icon-red { color: #dc3545; }
 .icon-orange { color: #fd7e14; }
 .highlight-green {
-  color: #00b050;
+  color: var(--accent-emerald, #00ff99);
   font-weight: bold;
 }
 .small-gray {
@@ -636,7 +639,7 @@ h2, h3, h4 {
 /* General Section Styling */
 .quick-win-section, .badges-section {
   padding: 2rem 1rem;
-  background-color: #fdfdfd;
+  background-color: var(--bg-surface, #111625); border: 1px solid var(--border-glass, rgba(0,255,200,0.18));
   border-radius: 16px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
   margin-bottom: 2rem;
@@ -648,13 +651,13 @@ h2, h3, h4 {
   display: flex;
   align-items: center;
   margin-bottom: 1.5rem;
-  color: #333;
+  color: var(--text-secondary, #94a3b8);
 }
 
 /* Quick Win Box */
 .quick-win-box {
-  background: linear-gradient(135deg, #e0ffe8, #c3ffe2);
-  border: 2px solid #00b050;
+  background: var(--bg-surface-alt, #161c2e);
+  border: 1px solid var(--border-glass, rgba(0,255,200,0.25));
   border-radius: 12px;
   padding: 1.5rem;
   display: flex;
@@ -667,20 +670,20 @@ h2, h3, h4 {
 .quick-win-text .bonus-info {
   font-size: 1rem;
   line-height: 1.5;
-  color: #01360d;
+  color: var(--text-primary, #f0f6fc);
 }
 
 .bonus-highlight {
-  background-color: #00b050;
-  color: white;
+  background-color: var(--bg-surface-alt, #161c2e);
+  color: var(--accent-emerald, #00ff99);
   padding: 0.2rem 0.5rem;
   border-radius: 6px;
   font-weight: bold;
 }
 
 .claim-bonus-btn {
-  background-color: #00b050;
-  color: white;
+  background-color: var(--bg-surface-alt, #161c2e);
+  color: var(--accent-emerald, #00ff99);
   border: none;
   padding: 0.75rem 1.5rem;
   font-weight: 600;
@@ -702,7 +705,7 @@ h2, h3, h4 {
 }
 
 .badge-card {
-  background-color: #ffffff;
+  background-color: var(--bg-glass-card, #161c2e); border: 1px solid var(--border-glass, rgba(0,255,200,0.18)); color: var(--text-primary, #f0f6fc);
   border-radius: 10px;
   padding: 1rem;
   text-align: center;
@@ -723,7 +726,7 @@ h2, h3, h4 {
 .badge-title {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #222;
+  color: var(--text-primary, #f0f6fc);
 }
 
 .badge-subtext {
@@ -757,7 +760,7 @@ h2, h3, h4 {
 
 /* Monthly Program Section */
 .monthly-program {
-  background-color: #f9f9ff;
+  background-color: var(--bg-surface, #111625); border: 1px solid var(--border-glass, rgba(0,255,200,0.18));
   padding: 2.5rem 1.5rem;
   border-radius: 16px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
@@ -767,7 +770,7 @@ h2, h3, h4 {
 .monthly-program h2 {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #111827;
+  color: var(--text-primary, #f0f6fc);
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -775,7 +778,7 @@ h2, h3, h4 {
 }
 
 .icon {
-  color: #00b050;
+  color: var(--accent-emerald, #00ff99);
 }
 
 .icon-small {
@@ -793,7 +796,7 @@ h2, h3, h4 {
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 0.75rem;
-  color: #1e293b;
+  color: var(--accent-emerald, #00ff99);
 }
 
 .program-desc {
@@ -807,7 +810,7 @@ h2, h3, h4 {
 .section-subtitle {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #111827;
+  color: var(--text-primary, #f0f6fc);
   margin-top: 2rem;
   margin-bottom: 1rem;
   display: flex;
@@ -824,7 +827,7 @@ h2, h3, h4 {
 .program-list li {
   margin-bottom: 0.75rem;
   font-size: 0.95rem;
-  color: #334155;
+  color: var(--text-secondary, #94a3b8);
   position: relative;
   padding-left: 1rem;
 }
@@ -833,7 +836,7 @@ h2, h3, h4 {
   content: "•";
   position: absolute;
   left: 0;
-  color: #00b050;
+  color: var(--accent-emerald, #00ff99);
   font-size: 1.2rem;
 }
 
@@ -850,7 +853,7 @@ h2, h3, h4 {
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 0.75rem;
-  color: #1f2937;
+  color: var(--text-primary, #f0f6fc);
   display: flex;
   align-items: center;
   gap: 0.4rem;
@@ -867,7 +870,7 @@ h2, h3, h4 {
   align-items: center;
   gap: 0.6rem;
   font-size: 0.95rem;
-  color: #374151;
+  color: var(--text-secondary, #94a3b8);
   margin-bottom: 0.6rem;
 }
 
@@ -927,8 +930,8 @@ h2, h3, h4 {
 /* FAQs Section */
 .faqs-section {
   padding: 3rem 1.5rem;
-  background-color: #f9f9fc;
-  color: #111;
+  background-color: transparent;
+  color: var(--text-primary, #f0f6fc);
 }
 
 .section-title {
@@ -938,7 +941,7 @@ h2, h3, h4 {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: #003c2f;
+  color: var(--text-primary, #f0f6fc);
 }
 
 .faqs-list {
@@ -949,8 +952,8 @@ h2, h3, h4 {
 
 /* FAQ Item */
 .faq-item {
-  background-color: #ffffff;
-  border-left: 4px solid #00b050;
+  background-color: var(--bg-glass-card, #161c2e); border: 1px solid var(--border-glass, rgba(0,255,200,0.18)); color: var(--text-primary, #f0f6fc);
+  border-left: 4px solid var(--accent-emerald, #00ff99);
   border-radius: 0.75rem;
   padding: 1.25rem 1.5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
@@ -966,7 +969,7 @@ h2, h3, h4 {
   font-size: 1.125rem;
   font-weight: 600;
   margin-bottom: 0.75rem;
-  color: #01360d;
+  color: var(--text-primary, #f0f6fc);
   display: flex;
   gap: 0.4rem;
   align-items: center;
@@ -975,7 +978,7 @@ h2, h3, h4 {
 .faq-answer {
   font-size: 0.95rem;
   line-height: 1.6;
-  color: #333;
+  color: var(--text-secondary, #94a3b8);
   opacity: 0.95;
 }
 

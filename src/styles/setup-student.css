@@ -7,7 +7,7 @@
 }
 
 body {
-  background-color: #121212;
+  background-color: var(--bg-base, #0a0d14);
   color: #e0e0e0;
   font-size: 14px;
   line-height: 1.6;
@@ -30,9 +30,9 @@ body {
 .screen-header {
   font-size: 24px;
   font-weight: 700;
-  color: #00b050;
+  color: var(--accent-emerald, #00ff99);
   margin-bottom: 30px;
-  border-left: 6px solid #00b050;
+  border-left: 6px solid var(--accent-emerald, #00ff99);
   padding-left: 15px;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -51,14 +51,13 @@ body {
 }
 
 .container {
-  background: #1a1a1a;
+  background: var(--bg-surface, #111625); border: 1px solid var(--border-glass, rgba(0, 255, 200, 0.2));
   padding: 30px 25px;
   border-radius: 12px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
   width: 100%;
   max-width: 500px;
-  border: 1px solid #333;
-  animation: bounceIn 1s ease-out;
+    animation: bounceIn 1s ease-out;
 }
 
 @keyframes bounceIn {
@@ -95,7 +94,7 @@ body {
 
 .step h2 {
   font-size: 18px;
-  color: #00b050;
+  color: var(--accent-emerald, #00ff99);
   margin-bottom: 20px;
   animation: fadeInText 1s ease-in-out;
 }
@@ -113,7 +112,7 @@ label {
   display: block;
   margin-bottom: 6px;
   font-weight: 500;
-  color: #ccc;
+  color: var(--text-secondary, #94a3b8);
   transition: color 0.3s ease;
 }
 
@@ -125,26 +124,27 @@ select {
   width: 100%;
   padding: 12px 16px;
   margin-bottom: 20px;
-  border: 1px solid #444;
+  border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
   border-radius: 8px;
   font-size: 14px;
-  background-color: #222;
-  color: #e0e0e0;
+  background-color: var(--bg-surface-alt, #161c2e);
+  color: var(--text-primary, #f0f6fc);
   transition: border-color 0.3s, background-color 0.3s, transform 0.3s ease-in-out;
 }
 
 input:focus,
 select:focus {
-  border-color: #00b050;
-  background-color: #333;
+  border-color: var(--accent-emerald, #00ff99);
+  background-color: var(--bg-surface, #111625);
   outline: none;
   transform: scale(1.02);
 }
 
 button {
   padding: 10px 16px;
-  background-color: #00b050;
-  color: #fff;
+  background: linear-gradient(135deg, var(--accent-emerald, #00ff99), var(--accent-cyan, #00f0ff));
+  color: #000;
+  font-weight: 800;
   border: none;
   border-radius: 8px;
   font-weight: 600;
@@ -156,7 +156,7 @@ button {
 }
 
 button:hover {
-  background-color: #00913f;
+  opacity: 0.9;
   transform: translateY(-3px);
 }
 
@@ -184,16 +184,16 @@ button:disabled {
   width: 100%;
   padding: 12px 15px;
   font-size: 16px;
-  border: 1px solid #444;
+  border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
   border-radius: 8px;
   outline: none;
   transition: border-color 0.3s, box-shadow 0.3s ease, transform 0.2s ease-in-out;
-  background-color: #222;
-  color: #e0e0e0;
+  background-color: var(--bg-surface-alt, #161c2e);
+  color: var(--text-primary, #f0f6fc);
 }
 
 #institution:focus {
-  border-color: #00b050;
+  border-color: var(--accent-emerald, #00ff99);
   box-shadow: 0 0 0 3px rgba(47, 184, 6, 0.2);
   transform: scale(1.03);
 }

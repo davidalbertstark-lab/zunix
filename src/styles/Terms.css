@@ -1,7 +1,7 @@
     body {
       font-family: 'Segoe UI', sans-serif;
-      background-color: #fefefe;
-      color: #111;
+      background-color: var(--bg-base, #0a0d14);
+      color: var(--text-primary, #f0f6fc);
       line-height: 1.8;
       scroll-behavior: smooth;
       margin: 0;
@@ -12,11 +12,11 @@
     }
     
     h1 {
-      color: #00b050;
+      color: var(--accent-emerald, #00ff99);
     }
     summary {
       font-weight: bold;
-      color: #00b050;
+      color: var(--accent-emerald, #00ff99);
       cursor: pointer;
       padding: 1rem 0;
       font-size: 1.1rem;
@@ -27,7 +27,7 @@
       margin-bottom: 1rem;
     }
     a {
-      color: #00b050;
+      color: var(--accent-emerald, #00ff99);
       text-decoration: none;
     }
     a:hover {
@@ -39,7 +39,8 @@
     }
 
      .footer {
-  background-color: #01360d;
+  background-color: var(--bg-surface, #111625);
+  border-top: 1px solid var(--border-glass, rgba(0, 255, 200, 0.15));
   color: #ffffff;
   text-align: center;
   padding: 20px;

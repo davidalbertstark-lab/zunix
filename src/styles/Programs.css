@@ -1,8 +1,8 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #ffffff;
-  color: #333;
+  background-color: var(--bg-base, #0a0d14);
+  color: var(--text-primary, #f0f6fc);
 }
 
 .programs-section {
@@ -14,7 +14,7 @@ body {
   margin: 0 auto;
   text-align: center;
   border-radius: 38px;
-  background-color: #EBEBEB;
+  background-color: var(--bg-glass-card, #161c2e); border: 1px solid var(--border-glass, rgba(0, 255, 200, 0.18));
 }
 
 .program-cta-buttons {
@@ -27,8 +27,8 @@ body {
 
 .program-cta-buttons .btn-secondary {
   background-color: transparent;
-  border: 2px solid #00b050;
-  color: #00b050;
+  border: 1px solid var(--accent-emerald, #00ff99);
+  color: var(--accent-emerald, #00ff99);
   padding: 0.6rem 1rem;
   border-radius: 5px;
   font-weight: 600;
@@ -38,7 +38,7 @@ body {
 }
 
 .program-cta-buttons .btn-secondary:hover {
-  background-color: #00b050;
+  background-color: var(--accent-emerald, #00ff99);
   color: #fff;
 }
 
@@ -60,7 +60,7 @@ body {
 .underline {
   width: 60px;
   height: 4px;
-  background-color: #00b050; /* Brand accent */
+  background-color: var(--accent-emerald, #00ff99); /* Brand accent */
   margin: 0 auto 1.5rem auto;
   border-radius: 8px;
 }
@@ -81,7 +81,7 @@ body {
   display: inline-block;
   margin-top: 1rem;
   padding: 0.75rem 1.5rem;
-  background-color: #00b050; /* Brand primary */
+  background-color: var(--accent-emerald, #00ff99); /* Brand primary */
   color: #fff;
   text-decoration: none;
   border-radius: 30px;
@@ -95,7 +95,7 @@ body {
 
 .zunix-program {
   padding: 80px 20px;
-  background-color: #f8f9fa;
+  background-color: var(--bg-surface-alt, #161c2e);
 }
 
 .program-header {
@@ -111,13 +111,13 @@ body {
 
 .program-tagline {
   font-size: 1.2rem;
-  color: #5f6368;
+  color: var(--text-secondary, #94a3b8);
   margin-top: 10px;
 }
 
 .program-description {
   font-size: 1.05rem;
-  color: #3c4043;
+  color: var(--text-primary, #f0f6fc);
   max-width: 900px;
   margin: 0 auto 50px auto;
   text-align: center;
@@ -156,12 +156,12 @@ body {
 .card-content h3 {
   font-size: 1.1rem;
   margin-bottom: 10px;
-  color: #00b050; /* Green branding for headings */
+  color: var(--accent-emerald, #00ff99); /* Green branding for headings */
 }
 
 .card-content p {
   font-size: 0.95rem;
-  color: #5f6368;
+  color: var(--text-secondary, #94a3b8);
 }
 
 .cta-button-wrapper {
@@ -171,7 +171,7 @@ body {
 
 .cta-button-wrapper .btn-primary {
   padding: 14px 28px;
-  background-color: #00b050;
+  background-color: var(--accent-emerald, #00ff99);
   color: white;
   font-weight: 600;
   border-radius: 8px;
@@ -184,7 +184,8 @@ body {
 }
 
 .footer {
-  background-color: #01360d;
+  background-color: var(--bg-surface, #111625);
+  border-top: 1px solid var(--border-glass, rgba(0, 255, 200, 0.15));
   color: #ffffff;
   text-align: center;
   padding: 20px;

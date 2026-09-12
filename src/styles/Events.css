@@ -2,8 +2,8 @@ body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
   padding: 0;
-  background: #f9f9f9;
-  color: #333;
+  background: var(--bg-base, #0a0d14);
+  color: var(--text-primary, #f0f6fc);
 }
 .container {
   max-width: 1080px;
@@ -23,17 +23,17 @@ body {
   margin: 10px;
 }
 .btn.primary {
-  background: #00b050;
+  background: linear-gradient(135deg, var(--accent-emerald, #00ff99), var(--accent-cyan, #00f0ff)); color: #000;
   color: white;
 }
 .btn.outline {
-  border: 2px solid #00b050;
-  color: #00b050;
+  border: 1px solid var(--accent-emerald, #00ff99);
+  color: var(--accent-emerald, #00ff99);
   background: transparent;
 }
 .main-icon, .icon {
   font-size: 40px;
-  color: #00b050;
+  color: var(--accent-emerald, #00ff99);
   display: block;
   text-align: center;
   margin-bottom: 20px;
@@ -67,7 +67,7 @@ body {
 .how-it-works .step span {
   font-size: 24px;
   font-weight: bold;
-  background: #00b050;
+  background: linear-gradient(135deg, var(--accent-emerald, #00ff99), var(--accent-cyan, #00f0ff)); color: #000;
   color: white;
   display: inline-block;
   width: 36px;

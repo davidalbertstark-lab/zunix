@@ -1,7 +1,7 @@
 :root {
-  --brand: #00b050;
-  --dark: #101010;
-  --light: #fafafa;
+  --brand: var(--accent-emerald, #00ff99);
+  --dark: var(--text-primary, #f0f6fc);
+  --light: var(--bg-base, #0a0d14);
   --gray: #666;
   --radius: 12px;
 }
@@ -65,7 +65,7 @@ body {
   margin-block: 4rem;
 }
 .role-card {
-  background: #fff;
+  background: var(--bg-glass-card, #161c2e); border: 1px solid var(--border-glass, rgba(0, 255, 200, 0.18));
   border-radius: var(--radius);
   padding: 2rem 1.5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
@@ -134,7 +134,7 @@ body {
   margin-top: 2rem;
 }
 .benefit {
-  background: #fff;
+  background: var(--bg-glass-card, #161c2e); border: 1px solid var(--border-glass, rgba(0, 255, 200, 0.18));
   border-radius: var(--radius);
   padding: 1.5rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);

@@ -1,5 +1,5 @@
 .inspired-by {
-  background-color: #f9f9f9;
+  background-color: var(--bg-base, #0a0d14);
   padding: 60px 20px;
   text-align: center;
 }
@@ -11,7 +11,7 @@
 
 .inspired-title {
   font-size: 2.5rem;
-  color: #222;
+  color: var(--text-primary, #f0f6fc);
   margin-bottom: 10px;
   font-weight: bold;
 }

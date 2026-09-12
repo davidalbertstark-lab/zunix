@@ -316,10 +316,17 @@ footer {
   background: var(--bg-base) !important;
 }
 
+.auth-card,
 .access-container {
-  background: var(--bg-glass-card) !important;
+  background: var(--bg-surface) !important;
   border: 1px solid var(--border-glass) !important;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), var(--glow-emerald) !important;
-  backdrop-filter: blur(16px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5) !important;
+}
+
+[data-theme="light"] .auth-card,
+[data-theme="light"] .access-container {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 154, 68, 0.25) !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08) !important;
 }
 

@@ -18,7 +18,7 @@ body {
 
 /* Hero Section */
 .about-hero {
-  background-color: #00b050;
+  background-color: var(--accent-emerald, #00ff99);
   color: white;
   text-align: center;
   padding: 80px 20px;
@@ -35,7 +35,7 @@ body {
 
 /* Content Sections */
 .about-section {
-  background-color: #fff;
+  background-color: var(--bg-glass-card, #161c2e); border: 1px solid var(--border-glass, rgba(0,255,200,0.18));
 }
 .about-section.alt {
   background-color: #f0f0f0;
@@ -43,7 +43,7 @@ body {
 .about-section h2 {
   font-size: 28px;
   margin-bottom: 20px;
-  color: #00b050;
+  color: var(--accent-emerald, #00ff99);
 }
 .about-section p {
   font-size: 18px;
@@ -67,7 +67,7 @@ body {
 
 /* CTA Section */
 .about-cta {
-  background-color: #00b050;
+  background-color: var(--accent-emerald, #00ff99);
   color: white;
   text-align: center;
   padding: 60px 20px;
@@ -92,7 +92,7 @@ body {
 .pillar {
   background: var(--bg-glass-card, #161c2e);
   padding: 20px;
-  border-left: 4px solid #00b050;
+  border-left: 4px solid var(--accent-emerald, #00ff99);
   font-weight: 500;
 }
 
@@ -134,7 +134,7 @@ body {
 }
 .edge-list li::before {
   content: "✔";
-  color: #00b050;
+  color: var(--accent-emerald, #00ff99);
   position: absolute;
   left: 0;
 }
@@ -155,7 +155,7 @@ body {
 .impact-box strong {
   font-size: 24px;
   display: block;
-  color: #00b050;
+  color: var(--accent-emerald, #00ff99);
 }
 
 /* === CTA Options === */
@@ -166,7 +166,7 @@ body {
   margin-top: 20px;
 }
 .cta-card {
-  background: #00b050;
+  background: var(--accent-emerald, #00ff99);
   color: white;
   text-align: center;
   padding: 15px;
@@ -192,7 +192,7 @@ body {
 }
 .philosophy-list li::before {
   content: "→";
-  color: #00b050;
+  color: var(--accent-emerald, #00ff99);
   position: absolute;
   left: 0;
 }
